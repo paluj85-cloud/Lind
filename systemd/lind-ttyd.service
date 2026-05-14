@@ -1,0 +1,22 @@
+# Lind — Cline CLI Web Terminal
+# systemd service unit for ttyd with Cline CLI
+
+[Unit]
+Description=Lind - Cline CLI Web Terminal
+After=network.target
+
+[Service]
+Type=simple
+User=lind
+ExecStart=/usr/local/bin/ttyd \
+    --port 7681 \
+    --credential Paluj:Pas22073814 \
+    --once \
+    --max-clients 3 \
+    --title-fixed "Lind — Cline CLI" \
+    /usr/bin/cline
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
