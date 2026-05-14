@@ -8,6 +8,7 @@ User=exis
 WorkingDirectory=/opt/lind
 Environment="CLINE_API_KEY=SET_AFTER_FIRST_RUN"
 Environment=PATH=/usr/bin:/usr/local/bin
+Environment=HOME=/opt/lind
 ExecStart=/usr/local/bin/ttyd --port 7681 --interface 127.0.0.1 --writable /opt/lind/cline_launcher.sh
 Restart=always
 RestartSec=5
