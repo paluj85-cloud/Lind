@@ -11,6 +11,10 @@
 - Prompts archived: `project_memory/previous/2026-05-15_stage2_extraction_prompt.md`
 - Git: branches `feature/knowledge-extraction` merged → `main`
 
+## [2026-05-15] — Phase 5: Acceptance & Archive for Content Extraction Pipeline
+- Closed Phase 5 formally — progress.log and CHANGELOG.md updated
+- Plan archived: project_memory/previous/2026-05-15_phase5-archive-extraction.md
+
 ## [2026-05-15] — Phase 5: Archive adnd-knowledge-structure task
 - Closed Phase 5 (Acceptance & Archive) for adnd-knowledge-structure task
 - Moved plan to project_memory/previous/2026-05-15_adnd-knowledge-structure.md

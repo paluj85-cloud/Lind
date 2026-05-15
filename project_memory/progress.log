@@ -18,7 +18,7 @@
 - Scripts: extract_facts.py, validate_facts.py, consolidate_facts.py
 - Plan: project_memory/previous/2026-05-15_stage2_extraction_prompt.md
 - Status: COMPLETE
-- Next: TBD (next task from user)
+- Next: Phase 5 closed, ready for next task
 
 ## 2026-05-15 17:35 — Phase 5: Acceptance & Archive for adnd-knowledge-structure
 - Phase: Phase 5 (Acceptance & Archive)
@@ -26,3 +26,10 @@
 - Plan: project_memory/previous/2026-05-15_adnd-knowledge-structure.md
 - Status: COMPLETE
 - Next: Content population of adnd-knowledge/ from chat_deepseek/ Lind|Exis_Project chats (32 relevant)
+
+## 2026-05-15 20:31 — Phase 5: Acceptance & Archive for Content Extraction Pipeline
+- Phase: Phase 5 (Acceptance & Archive)
+- Action: Closed Phase 5 — added entries to progress.log and CHANGELOG.md, git push
+- Plan: project_memory/previous/2026-05-15_phase5-archive-extraction.md
+- Status: COMPLETE
+- Next: TBD (next task from user)
