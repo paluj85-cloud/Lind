@@ -12,6 +12,14 @@
 - Status: COMPLETE
 - Next: Acceptance & Archive (close tails), then content population from chat_deepseek/
 
+## 2026-05-15 19:31 — Content Extraction Pipeline Complete (Этапы 1-4)
+- Phase: Phases 1-5 (Analysis → Acceptance)
+- Action: 121 chats classified, 350 facts extracted, 8 README.md consolidated, 36/36 validated
+- Scripts: extract_facts.py, validate_facts.py, consolidate_facts.py
+- Plan: project_memory/previous/2026-05-15_stage2_extraction_prompt.md
+- Status: COMPLETE
+- Next: TBD (next task from user)
+
 ## 2026-05-15 17:35 — Phase 5: Acceptance & Archive for adnd-knowledge-structure
 - Phase: Phase 5 (Acceptance & Archive)
 - Action: Moved plan to previous/, added CHANGELOG entry, git push

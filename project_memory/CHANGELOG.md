@@ -1,14 +1,15 @@
 # CHANGELOG
 
-## [2026-05-15] — Stage 2 Complete: Knowledge Extraction & Consolidation (350 facts, 8 README.md)
-- **Stage 1:** Classified 121 chats → _classification.json (107 Lind-related, 14 non-Lind)
-- **Stage 2:** Extracted 350 facts from 107 Lind chats (11 batches, 10 workers parallel, DeepSeek JSON mode)
+## [2026-05-15] — Content Extraction Pipeline (Этапы 1-4): 350 фактов, 8 разделов adnd-knowledge/
+- **Этап 1 (Классификация)**: 121 чат → `_classification.json` (107 Lind-related, 14 non-Lind)
+- **Этап 2 (Extraction)**: `scripts/extract_facts.py` — concurrent.futures (10 workers), DeepSeek API JSON mode → 350 фактов (11 партий)
   - Sections: architecture (104), decisions (71), api-spec (44), status (38), game-design (36), vision (24), frontend (18), game-loop (15)
-- **Stage 3:** Consolidated facts into 8 README.md via 8 parallel DeepSeek API requests
-- **Stage 4:** Final validation — 36/36 facts verified (100%) via API with exact/paraphrase/implied match types
-- Scripts created: `scripts/extract_facts.py`, `scripts/validate_facts.py`, `scripts/consolidate_facts.py`
+- **Этап 3 (Consolidation)**: `scripts/consolidate_facts.py` → 8 README.md (через API)
+- **Этап 4 (Final Validation)**: `scripts/validate_facts.py` — 36/36 (100%: exact/paraphrase/implied)
+- Scripts: extract_facts.py, validate_facts.py, consolidate_facts.py
 - Reports: `project_memory/previous/stage2_validation_report.json`
 - Prompts archived: `project_memory/previous/2026-05-15_stage2_extraction_prompt.md`
+- Git: branches `feature/knowledge-extraction` merged → `main`
 
 ## [2026-05-15] — Phase 5: Archive adnd-knowledge-structure task
 - Closed Phase 5 (Acceptance & Archive) for adnd-knowledge-structure task
