@@ -1,0 +1,196 @@
+{
+  "section": "status",
+  "mappings": [
+    {
+      "fact_id": "sta_001",
+      "chat_file": "2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_002",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_003",
+      "chat_file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_004",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_005",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_006",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_007",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_008",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_009",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_010",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_011",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_012",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_013",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_014",
+      "chat_file": "2026-05-09/adfe6475-создание-системного-промта-для-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_015",
+      "chat_file": "2026-05-09/adfe6475-создание-системного-промта-для-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_016",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_017",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_018",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_019",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_020",
+      "chat_file": "2026-05-11/ce57ad46-самосознание-ии-создает-мир.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_021",
+      "chat_file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_022",
+      "chat_file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_023",
+      "chat_file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_024",
+      "chat_file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_025",
+      "chat_file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_026",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_027",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_028",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_029",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_030",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_031",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_032",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_033",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_034",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_035",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_036",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_037",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "sta_038",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    }
+  ],
+  "last_updated": "2026-05-15T19:05:32Z"
+}

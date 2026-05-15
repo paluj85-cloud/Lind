@@ -1,0 +1,526 @@
+{
+  "section": "architecture",
+  "mappings": [
+    {
+      "fact_id": "arc_001",
+      "chat_file": "2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_002",
+      "chat_file": "2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_003",
+      "chat_file": "2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_004",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_005",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_006",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_007",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_008",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_009",
+      "chat_file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_010",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_011",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_012",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_013",
+      "chat_file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_014",
+      "chat_file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_015",
+      "chat_file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_016",
+      "chat_file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_017",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_018",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_019",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_020",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_021",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_022",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_023",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_024",
+      "chat_file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_025",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_026",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_027",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_028",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_029",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_030",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_031",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_032",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_033",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_034",
+      "chat_file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_035",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_036",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_037",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_038",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_039",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_040",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_041",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_042",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_043",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_044",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_045",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_046",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_047",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_048",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_049",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_050",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_051",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_052",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_053",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_054",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_055",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_056",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_057",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_058",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_059",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_060",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_061",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_062",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_063",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_064",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_065",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_066",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_067",
+      "chat_file": "2026-05-11/ce57ad46-самосознание-ии-создает-мир.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_068",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_069",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_070",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_071",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_072",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_073",
+      "chat_file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_074",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_075",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_076",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_077",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_078",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_079",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_080",
+      "chat_file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_081",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_082",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_083",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_084",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_085",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_086",
+      "chat_file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_087",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_088",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_089",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_090",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_091",
+      "chat_file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_092",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_093",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_094",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_095",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_096",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_097",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_098",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_099",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_100",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_101",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_102",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_103",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "arc_104",
+      "chat_file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "line_range": ""
+    }
+  ],
+  "last_updated": "2026-05-15T19:05:32Z"
+}

@@ -1,0 +1,404 @@
+{
+  "section": "api-spec",
+  "last_updated": "2026-05-15T19:05:32Z",
+  "facts": [
+    {
+      "fact": "Модуль предоставляет API-методы для загрузки книг, получения текущей книги и запуска анализа, все URL начинаются с /api/admin.",
+      "source_quote": "Все URL начинаются с /api/admin. 5.1 Загрузка и управление книгой POST /books/upload ... GET /books/current ... POST /books/current/start",
+      "chat_id": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "confidence": "high",
+      "topic": "API endpoints",
+      "fact_id": "api_001",
+      "line_range": ""
+    },
+    {
+      "fact": "POST /books/upload принимает multipart/form-data с полем file, валидирует расширение (.txt, .epub, .fb2, .md) и размер, преобразует в plain text, создаёт запись в arc_book, сохраняет plain text на диске, возвращает { \"book_id\": 1 }.",
+      "source_quote": "POST /books/upload Принимает multipart/form-data с полем file. Валидирует расширение (.txt, .epub, .fb2, .md) и размер. Преобразует в plain text ... Создаёт запись в arc_book, сохраняет plain text на диске. Возвращает { \"book_id\": 1 }.",
+      "chat_id": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "confidence": "high",
+      "topic": "Upload endpoint",
+      "fact_id": "api_002",
+      "line_range": ""
+    },
+    {
+      "fact": "GET /books/current возвращает информацию о текущей загруженной книге (последней по времени) или 404, если ни одной книги не загружено.",
+      "source_quote": "GET /books/current Возвращает информацию о текущей загруженной книге (последней по времени) или 404, если ни одной книги не загружено.",
+      "chat_id": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "confidence": "high",
+      "topic": "Current book endpoint",
+      "fact_id": "api_003",
+      "line_range": ""
+    },
+    {
+      "fact": "POST /books/current/start запускает или возобновляет анализ для текущей книги, принимает тело с параметрами fragment_size, split_by_chapters, extraction_prompt.",
+      "source_quote": "POST /books/current/start Запускает или возобновляет анализ для текущей книги. Тело: { \"fragment_size\": 8000, \"split_by_chapters\": true, \"extraction_prompt",
+      "chat_id": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "confidence": "high",
+      "topic": "Start analysis endpoint",
+      "fact_id": "api_004",
+      "line_range": ""
+    },
+    {
+      "fact": "FastAPI используется как фреймворк для веб-приложения, поддерживает async и WebSocket.",
+      "source_quote": "FastAPI как фреймворк (поддержка async, WebSocket)",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "выбор фреймворка",
+      "fact_id": "api_005",
+      "line_range": ""
+    },
+    {
+      "fact": "Эндпоинты: POST /api/chat/send, WebSocket /ws/chat/{session_id}, а также эндпоинты администратора для управления памятью и инициализации мира.",
+      "source_quote": "Эндпоинты: POST /api/chat/send, WebSocket /ws/chat/{session_id}, эндпоинты администратора для управления памятью, инициализации мира.",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "эндпоинты API",
+      "fact_id": "api_006",
+      "line_range": ""
+    },
+    {
+      "fact": "Для реального времени используется WebSocket для стриминга ответов, а HTTP — для отправки сообщения.",
+      "source_quote": "HTTP для отправки сообщения, но для реального времени WebSocket для стриминга ответов.",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "протокол общения",
+      "fact_id": "api_007",
+      "line_range": ""
+    },
+    {
+      "fact": "Интеграция с DeepSeek API использует Chat Completions API (v1/chat/completions) с моделью deepseek-chat, поддерживает JSON mode для структурированных ответов.",
+      "source_quote": "Используем Chat Completions API (v1/chat/completions), модель deepseek-chat (или deepseek-v4-pro, как указано). Надо поддерживать JSON mode (response_format: { type: 'json_object' }) для структурированных ответов",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "интеграция DeepSeek",
+      "fact_id": "api_008",
+      "line_range": ""
+    },
+    {
+      "fact": "Обработка ошибок DeepSeek API включает retry с exponential backoff и circuit breaker.",
+      "source_quote": "Обработка ошибок: retry с exponential backoff, circuit breaker.",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "обработка ошибок",
+      "fact_id": "api_009",
+      "line_range": ""
+    },
+    {
+      "fact": "Rate limits DeepSeek API учитываются с помощью очереди с регулированием (token bucket).",
+      "source_quote": "Rate limits: учесть ограничения API (знать лимиты запросов в минуту), использовать очередь с регулированием (token bucket).",
+      "chat_id": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "confidence": "high",
+      "topic": "управление лимитами",
+      "fact_id": "api_010",
+      "line_range": ""
+    },
+    {
+      "fact": "DeepSeek API поддерживает параметр thinking для модели deepseek-v4-flash, который может быть включен (enabled) или выключен (disabled).",
+      "source_quote": "Я имел ввиду deepseek-v4-flash когда \"thinking\": {\"type\": \"enabled\"}, или disable",
+      "chat_id": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "confidence": "high",
+      "topic": "thinking parameter",
+      "fact_id": "api_011",
+      "line_range": ""
+    },
+    {
+      "fact": "В режиме с размышлениями (thinking enabled) модель генерирует цепочку рассуждений, которая возвращается в ответе API как reasoning_content.",
+      "source_quote": "В этом режиме модель сначала строит внутреннюю цепочку рассуждений (Chain of Thought), которую вы видите в ответе API как reasoning_content",
+      "chat_id": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "confidence": "high",
+      "topic": "reasoning_content output",
+      "fact_id": "api_012",
+      "line_range": ""
+    },
+    {
+      "fact": "Режим с размышлениями требует больше времени и токенов, чем режим без размышлений.",
+      "source_quote": "Разумеется, такая \"глубокая работа\" требует больше времени и токенов",
+      "chat_id": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "confidence": "high",
+      "topic": "cost and latency",
+      "fact_id": "api_013",
+      "line_range": ""
+    },
+    {
+      "fact": "Режим без размышлений (thinking disabled) является быстрым и экономичным, подходит для общих вопросов, творчества или простых поручений.",
+      "source_quote": "Это быстрый и экономичный режим для обычных задач. Модель сразу генерирует итоговый ответ, основываясь на своих знаниях, не тратя время на дополнительный анализ. Идеально подходит для общих вопросов, творчества или простых поручений.",
+      "chat_id": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "confidence": "high",
+      "topic": "non-thinking mode use cases",
+      "fact_id": "api_014",
+      "line_range": ""
+    },
+    {
+      "fact": "Режим с размышлениями (thinking enabled) лучше подходит для сложных логических задач, математики, программирования и многошаговых инструкций.",
+      "source_quote": "Сложных логических задач, математики, программирования, многошаговых инструкций.",
+      "chat_id": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "confidence": "high",
+      "topic": "thinking mode use cases",
+      "fact_id": "api_015",
+      "line_range": ""
+    },
+    {
+      "fact": "Приложение имеет REST-эндпоинты /api/health, /api/session/start, /api/session/name и WebSocket для чата.",
+      "source_quote": "Есть REST-эндпоинты для старта сессии и ввода имени.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "high",
+      "topic": "API endpoints",
+      "fact_id": "api_016",
+      "line_range": ""
+    },
+    {
+      "fact": "WebSocket используется для чата между игроком и ИИ-Мастером.",
+      "source_quote": "бэкенд — FastAPI, WebSocket для чата.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket chat",
+      "fact_id": "api_017",
+      "line_range": ""
+    },
+    {
+      "fact": "Предполагается эндпоинт GET /api/health для проверки здоровья приложения.",
+      "source_quote": "Как проверить эндпоинты `/api/health`, `/api/session/start`, `/api/session/name` через curl или httpx.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "medium",
+      "topic": "health endpoint",
+      "fact_id": "api_018",
+      "line_range": ""
+    },
+    {
+      "fact": "Предполагается эндпоинт POST /api/session/start для начала сессии, возвращающий session_id.",
+      "source_quote": "POST /api/session/start -> возвращает JSON с session_id.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "medium",
+      "topic": "session start endpoint",
+      "fact_id": "api_019",
+      "line_range": ""
+    },
+    {
+      "fact": "Предполагается эндпоинт POST /api/session/name для установки имени игрока, принимающий session_id и name.",
+      "source_quote": "POST /api/session/name -> принимает session_id и name, возвращает благословение.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "medium",
+      "topic": "session name endpoint",
+      "fact_id": "api_020",
+      "line_range": ""
+    },
+    {
+      "fact": "Предполагается WebSocket эндпоинт /ws/chat/{session_id} для чата.",
+      "source_quote": "WebSocket: /ws/chat/{session_id} - чат.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "medium",
+      "topic": "WebSocket endpoint",
+      "fact_id": "api_021",
+      "line_range": ""
+    },
+    {
+      "fact": "Предполагается эндпоинт GET /api/session/{session_id}/history для получения истории диалога.",
+      "source_quote": "GET /api/session/{session_id}/history, который возвращает JSON с сообщениями.",
+      "chat_id": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "confidence": "medium",
+      "topic": "session history endpoint",
+      "fact_id": "api_022",
+      "line_range": ""
+    },
+    {
+      "fact": "Эндпоинт POST /api/session/name принимает тело запроса с полем player_name и возвращает ответ с полем master_says.",
+      "source_quote": "В эндпоинте POST /api/session/name тело запроса должно содержать поле \"player_name\", а не \"name\". Ответ должен содержать поле \"master_says\", а не \"message\".",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "API session name",
+      "fact_id": "api_023",
+      "line_range": ""
+    },
+    {
+      "fact": "Клиент WebSocket отправляет сообщение в формате {\"action\": \"player_message\", \"text\": \"...\"}.",
+      "source_quote": "Клиент отправляет строго {\"action\": \"player_message\", \"text\": \"...\"}.",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket client message",
+      "fact_id": "api_024",
+      "line_range": ""
+    },
+    {
+      "fact": "Сервер WebSocket отправляет события в форматах: {\"event\": \"master_thinking\", \"status\": \"started\"}, {\"event\": \"master_speech\", \"text\": \"...\", \"turn_id\": \"uuid\"}, {\"event\": \"master_thinking\", \"status\": \"stopped\"}.",
+      "source_quote": "Сервер отвечает строго {\"event\": \"master_thinking\", \"status\": \"started\"}, {\"event\": \"master_speech\", \"text\": \"...\", \"turn_id\": \"uuid\"}, {\"event\": \"master_thinking\", \"status\": \"stopped\"}.",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket server events",
+      "fact_id": "api_025",
+      "line_range": ""
+    },
+    {
+      "fact": "Эндпоинт POST /api/session/start возвращает ответ с полем master_says, содержащим текст приветствия и запрос имени.",
+      "source_quote": "Ответ POST /api/session/start содержит поле \"master_says\" с текстом приветствия и запросом имени.",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "API session start",
+      "fact_id": "api_026",
+      "line_range": ""
+    },
+    {
+      "fact": "Эндпоинт GET /api/session/{id}/history отсутствует в ФТЗ.",
+      "source_quote": "Эндпоинта GET /api/session/{id}/history в ФТЗ нет.",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "API history endpoint missing",
+      "fact_id": "api_027",
+      "line_range": ""
+    },
+    {
+      "fact": "Для проверки сохранности сессии после перезапуска сервера нужно подключиться по WebSocket к тому же session_id и убедиться, что сервер отправляет событие с недавней историей, или проверить, что GET /api/session/{id} возвращает валидные данные сессии, а следующий ход в чате не вызывает ошибки.",
+      "source_quote": "после перезапуска подключиться по WebSocket к тому же session_id и убедиться, что сервер отправляет событие с недавней историей (или, если история не отправляется автоматически, проверить, что GET /api/session/{id} возвращает валидные данные сессии, а следующий ход в чате не вызывает ошибки).",
+      "chat_id": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "confidence": "high",
+      "topic": "Session persistence test",
+      "fact_id": "api_028",
+      "line_range": ""
+    },
+    {
+      "fact": "Приложение использует FastAPI как фреймворк с поддержкой async и WebSocket.",
+      "source_quote": "FastAPI как фреймворк (поддержка async, WebSocket)",
+      "chat_id": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "confidence": "high",
+      "topic": "выбор фреймворка",
+      "fact_id": "api_029",
+      "line_range": ""
+    },
+    {
+      "fact": "Эндпоинты: POST /api/chat/send, WebSocket /ws/chat/{session_id}, эндпоинты администратора для управления памятью и инициализации мира.",
+      "source_quote": "Эндпоинты: POST /api/chat/send, WebSocket /ws/chat/{session_id}, эндпоинты администратора для управления памятью, инициализации мира.",
+      "chat_id": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "confidence": "high",
+      "topic": "эндпоинты API",
+      "fact_id": "api_030",
+      "line_range": ""
+    },
+    {
+      "fact": "Для реального времени используется WebSocket для стриминга ответов.",
+      "source_quote": "для реального времени WebSocket для стриминга ответов.",
+      "chat_id": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "confidence": "high",
+      "topic": "WebSocket для стриминга",
+      "fact_id": "api_031",
+      "line_range": ""
+    },
+    {
+      "fact": "Интеграция с DeepSeek API включает Chat Completions в JSON mode и FIM.",
+      "source_quote": "Интеграция с DeepSeek API: Chat Completions в JSON mode, FIM, обработка ошибок, rate limits.",
+      "chat_id": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "confidence": "high",
+      "topic": "интеграция с DeepSeek API",
+      "fact_id": "api_032",
+      "line_range": ""
+    },
+    {
+      "fact": "REST-эндпоинт GET /api/health возвращает {\"status\": \"ok\", \"version\": \"0.1\", \"db\": \"connected\"} и должен проверить доступность БД.",
+      "source_quote": "GET /api/health Ответ: {\"status\": \"ok\", \"version\": \"0.1\", \"db\": \"connected\"} (должен проверить доступность БД).",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "REST health endpoint",
+      "fact_id": "api_033",
+      "line_range": ""
+    },
+    {
+      "fact": "REST-эндпоинт POST /api/session/start создаёт новую сессию, возвращает session_id и статическое приветствие с просьбой назвать имя.",
+      "source_quote": "POST /api/session/start Создаёт новую сессию, возвращает session_id и статическое приветствие с просьбой назвать имя.",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "REST session start",
+      "fact_id": "api_034",
+      "line_range": ""
+    },
+    {
+      "fact": "REST-эндпоинт POST /api/session/name устанавливает имя игрока и получает персональное благословение от LLM; запрос содержит session_id и player_name; логика: проверяет, что сессия существует и name_provided == false, обновляет запись, вызывает DeepSeek с промтом, возвращает ответ.",
+      "source_quote": "POST /api/session/name Устанавливает имя игрока и получает персональное благословение от LLM. Запрос: {\"session_id\": \"uuid\", \"player_name\": \"Аэрин\"}. Логика: Проверяет, что сессия существует и name_provided == false. Обновляет запись: player_name = \"Аэрин\", name_provided = true. Вызывает DeepSeek с промтом «Сгенерируй приветствие для игрока по имени Аэрин...». Возвращает ответ.",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "REST session name",
+      "fact_id": "api_035",
+      "line_range": ""
+    },
+    {
+      "fact": "REST-эндпоинт GET /api/session/{session_id} возвращает метаданные сессии: session_id, player_name, created_at, last_active, name_provided.",
+      "source_quote": "GET /api/session/{session_id} Возвращает метаданные сессии. Ответ: {\"session_id\": \"...\", \"player_name\": \"Аэрин\", \"created_at\": \"...\", \"last_active\": \"...\", \"name_provided\": true}",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "REST session metadata",
+      "fact_id": "api_036",
+      "line_range": ""
+    },
+    {
+      "fact": "WebSocket /ws/chat/{session_id} подключается только после успешного именования; иначе сервер разрывает соединение с кодом 4000 и сообщением «Требуется имя».",
+      "source_quote": "Подключение: Только после успешного именования. Иначе сервер разрывает соединение с кодом 4000 и сообщением «Требуется имя».",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket connection",
+      "fact_id": "api_037",
+      "line_range": ""
+    },
+    {
+      "fact": "События от сервера по WebSocket: connected, master_thinking (started/stopped), master_speech, error.",
+      "source_quote": "События от сервера: {\"event\": \"connected\", \"session_id\": \"...\"} — успешное подключение. {\"event\": \"master_thinking\", \"status\": \"started\"} — начало генерации. {\"event\": \"master_speech\", \"text\": \"...\", \"turn_id\": \"uuid\"} — нарратив. {\"event\": \"master_thinking\", \"status\": \"stopped\"} — завершение. {\"event\": \"error\", \"message\": \"...\"} — ошибка.",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket server events",
+      "fact_id": "api_038",
+      "line_range": ""
+    },
+    {
+      "fact": "Событие от клиента по WebSocket: {\"action\": \"player_message\", \"text\": \"...\"} — текст до 500 символов.",
+      "source_quote": "События от клиента: {\"action\": \"player_message\", \"text\": \"...\"} — текст до 500 символов.",
+      "chat_id": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "confidence": "high",
+      "topic": "WebSocket client event",
+      "fact_id": "api_039",
+      "line_range": ""
+    },
+    {
+      "fact": "Клиент отправляет заявку в формате JSON: { \"player\": \"имя\", \"action_type\": \"say\"|\"do\", \"content\": \"текст\" }.",
+      "source_quote": "json { \"player\": \"имя\", \"action_type\": \"say\"|\"do\", \"content\": \"текст\" }",
+      "chat_id": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "confidence": "high",
+      "topic": "формат заявки",
+      "fact_id": "api_040",
+      "line_range": ""
+    },
+    {
+      "fact": "Сервер рассылает порядок хода сообщением: { \"type\": \"turn_order\", \"order\": [\"имя1\", \"имя2\", ...] }.",
+      "source_quote": "Рассылает клиентам сообщение: { \"type\": \"turn_order\", \"order\": [\"имя1\", \"имя2\", ...] }.",
+      "chat_id": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "confidence": "high",
+      "topic": "сообщение turn_order",
+      "fact_id": "api_041",
+      "line_range": ""
+    },
+    {
+      "fact": "Сервер отправляет запрос броска сообщением: { \"type\": \"dice_prompt\", \"reason\": \"...\", \"secret\": true/false }.",
+      "source_quote": "сервер отправляет клиенту игрока, указанного в player, сообщение: { \"type\": \"dice_prompt\", \"reason\": \"...\", \"secret\": true/false }.",
+      "chat_id": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "confidence": "high",
+      "topic": "сообщение dice_prompt",
+      "fact_id": "api_042",
+      "line_range": ""
+    },
+    {
+      "fact": "API включает WebSocket и REST эндпоинты, определённые в api/websocket_handler.py и api/rest_endpoints.py.",
+      "source_quote": "from api.websocket_handler import router as ws_router, ConnectionManager\nfrom api.rest_endpoints import router as rest_router",
+      "chat_id": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "confidence": "high",
+      "topic": "API endpoints",
+      "fact_id": "api_043",
+      "line_range": ""
+    },
+    {
+      "fact": "WebSocket хендлер использует ConnectionManager для управления соединениями.",
+      "source_quote": "connection_manager = ConnectionManager()",
+      "chat_id": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "confidence": "high",
+      "topic": "WebSocket manager",
+      "fact_id": "api_044",
+      "line_range": ""
+    }
+  ],
+  "consolidated_at": "2026-05-15T19:17:30Z",
+  "readme_size_chars": 6064
+}

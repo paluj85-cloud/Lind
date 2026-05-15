@@ -1,0 +1,226 @@
+{
+  "section": "api-spec",
+  "mappings": [
+    {
+      "fact_id": "api_001",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_002",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_003",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_004",
+      "chat_file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_005",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_006",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_007",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_008",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_009",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_010",
+      "chat_file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_011",
+      "chat_file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_012",
+      "chat_file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_013",
+      "chat_file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_014",
+      "chat_file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_015",
+      "chat_file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_016",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_017",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_018",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_019",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_020",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_021",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_022",
+      "chat_file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_023",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_024",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_025",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_026",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_027",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_028",
+      "chat_file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_029",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_030",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_031",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_032",
+      "chat_file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_033",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_034",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_035",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_036",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_037",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_038",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_039",
+      "chat_file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_040",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_041",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_042",
+      "chat_file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_043",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    },
+    {
+      "fact_id": "api_044",
+      "chat_file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "line_range": ""
+    }
+  ],
+  "last_updated": "2026-05-15T19:05:32Z"
+}

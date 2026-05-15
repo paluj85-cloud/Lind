@@ -1,0 +1,71 @@
+============================================================
+FINAL VALIDATION: 10% of facts via DeepSeek API
+============================================================
+
+  vision: checking 3/24 facts...
+    ✓ vis_021: exact
+    ✓ vis_004: paraphrase
+    ✓ vis_001: paraphrase
+
+  game-design: checking 3/36 facts...
+    ✓ gds_015: exact
+    ✓ gds_018: exact
+    ✓ gds_016: exact
+
+  game-loop: checking 3/15 facts...
+    ✓ glp_012: exact
+    ✓ glp_002: exact
+    ✓ glp_003: exact
+
+  api-spec: checking 4/44 facts...
+    ✓ api_006: exact
+    ✓ api_044: exact
+    ✓ api_038: exact
+    ✓ api_035: exact
+
+  frontend: checking 3/18 facts...
+    ✓ fnt_002: exact
+    ✓ fnt_001: exact
+    ✓ fnt_014: paraphrase
+
+  architecture: checking 10/104 facts...
+    ✓ arc_004: exact
+    ✓ arc_030: exact
+    ✓ arc_084: exact
+    ✓ arc_026: exact
+    ✓ arc_012: exact
+    ✓ arc_092: exact
+    ✓ arc_028: exact
+    ✓ arc_078: exact
+    ✓ arc_072: exact
+    ✓ arc_065: exact
+
+  decisions: checking 7/71 facts...
+    ✓ dec_058: exact
+    ✓ dec_029: exact
+    ✓ dec_036: exact
+    ✓ dec_001: paraphrase
+    ✓ dec_054: exact
+    ✓ dec_021: paraphrase
+    ✓ dec_070: exact
+
+  status: checking 3/38 facts...
+    ✓ sta_028: exact
+    ✓ sta_018: exact
+    ✓ sta_022: exact
+
+============================================================
+VALIDATION SUMMARY
+============================================================
+  vision              : 3/3 (100.0%) ✓ PASS
+  game-design         : 3/3 (100.0%) ✓ PASS
+  game-loop           : 3/3 (100.0%) ✓ PASS
+  api-spec            : 4/4 (100.0%) ✓ PASS
+  frontend            : 3/3 (100.0%) ✓ PASS
+  architecture        : 10/10 (100.0%) ✓ PASS
+  decisions           : 7/7 (100.0%) ✓ PASS
+  status              : 3/3 (100.0%) ✓ PASS
+
+Report saved: /opt/lind/project_memory/previous/stage2_validation_report.json
+
+✓ OVERALL: 100.0% ≥ 95% — VALIDATION PASSED

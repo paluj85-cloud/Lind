@@ -1,0 +1,18 @@
+============================================================
+CONSOLIDATION: Facts → README.md (8 sections)
+============================================================
+  [OK] frontend            :  18 facts →  3213 chars README.md
+  [OK] vision              :  24 facts →  4609 chars README.md
+  [OK] status              :  38 facts →  5301 chars README.md
+  [OK] game-loop           :  15 facts →  4939 chars README.md
+  [OK] api-spec            :  44 facts →  6064 chars README.md
+  [OK] game-design         :  36 facts →  6464 chars README.md
+  [OK] architecture        : 104 facts →  8287 chars README.md
+  [OK] decisions           :  71 facts →  8359 chars README.md
+
+============================================================
+CONSOLIDATION COMPLETE
+============================================================
+Total facts consolidated: 350
+Sections: 8/8
+Timestamps updated in _audit.json files.

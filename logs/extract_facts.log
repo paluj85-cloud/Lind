@@ -1,0 +1,295 @@
+Loaded 107 Lind-related chats
+Model: deepseek-chat (JSON mode)
+Workers: 10 parallel
+Total batches: 11 (starting at 1)
+
+############################################################
+# BATCH 1/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-04-21/3d5532a5-сравнение-postgresql-и-sqlite.md ... 2026-04-23/6f1efe2e-ai-ассистенты-программирования-обзор-2026.md
+============================================================
+  [OK] 3d5532a5-сравнение-postgresql-и-sqlite.md: 0 facts
+  [OK] 647f2b92-основы-работы-с-fastapi-на-хостинге.md: 0 facts
+  [OK] cfb00e16-создание-файла-для-проверки-python-на-поддомене.md: 0 facts
+  [OK] bb27f97f-бесплатные-запросы-deepseek-api.md: 0 facts
+  [OK] 344843f2-готовые-решения-для-веб-чата.md: 0 facts
+  [OK] bf276322-выбор-css-фреймворка-в-2026.md: 0 facts
+  [OK] e3741e54-сравнение-чата-и-api-deepseek.md: 0 facts
+  [OK] 6e4ca94c-сравнение-fastapi-и-php.md: 0 facts
+  [OK] 6f1efe2e-ai-ассистенты-программирования-обзор-2026.md: 0 facts
+  [OK] 0bb22946-советы-по-ии-для-чат-бота-на-python.md: 0 facts
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 2/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-04-23/b94f9d5b-решение-ошибки-npm-в-vs-code.md ... 2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md
+============================================================
+  [OK] b777d640-cline-kanban-обзор.md: 0 facts
+  [OK] b94f9d5b-решение-ошибки-npm-в-vs-code.md: 0 facts
+  [OK] 50b7a4f6-отсутствие-распознавания-голоса-у-ии.md: 0 facts
+  [OK] 3358a41b-хранение-книг-mysql-для-ии.md: 0 facts
+  [OK] 8e1ff011-ресурсы-распознавания-голоса-для-python.md: 0 facts
+  [OK] 1fdbce25-сравнение-copilot-и-cline-для-vs-code.md: 0 facts
+  [OK] 45c4285b-обучение-ии-мастерству-игры.md: 0 facts
+  [OK] ef207b3a-как-включить-ftp-в-vs-code.md: 0 facts
+  [OK] a9abc620-доработка-таблицы-рас-для-нри.md: 12 facts
+  [OK] cf2879fe-составление-тз-для-игры-с-ии-мастером.md: 23 facts
+  [VAL] game-design: 1/3 (33%) ✗ FAIL
+  [WARN] Validation <95% for game-design. Continuing but flagged.
+  [VAL] game-loop: 3/3 (100%) ✓
+  [VAL] frontend: 3/3 (100%) ✓
+  [VAL] architecture: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+  [VAL] decisions: 3/3 (100%) ✓
+  [VAL] status: 2/2 (100%) ✓
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 3/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-04-28/b26cb602-сюжетные-повороты-и-арки.md ... 2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md
+============================================================
+  [OK] abb70f55-максимальная-длина-текста-deepseek-v4-flash.md: 0 facts
+  [OK] 0dd0b1a6-как-узнать-версию-deepseek-api.md: 0 facts
+  [OK] 75201ce9-отличия-deepseek-v4-flash-и-pro.md: 0 facts
+  [OK] 9cabce35-выбор-асинхронной-работы-с-mysql.md: 0 facts
+  [OK] a6a01044-что-нужно-программисту-помимо-тз.md: 0 facts
+  [OK] 44821b3e-deepseek-версия-и-модель.md: 0 facts
+  [OK] b26cb602-сюжетные-повороты-и-арки.md: 0 facts
+  [OK] 49b2dd40-объяснение-anthropic-api.md: 0 facts
+  [OK] af59e1fd-проверка-тз-на-ошибки-и-неполноту.md: 0 facts
+  [OK] e3c4f4f2-анализ-тз-на-ошибки.md: 7 facts
+  [VAL] api-spec: 0/3 (0%) ✗ FAIL
+  [WARN] Validation <95% for api-spec. Continuing but flagged.
+  [VAL] architecture: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 4/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-01/25fc88ce-смысл-подготовки-арок-приключений-для-ии.md ... 2026-05-05/37304bf1-сервисы-для-создания-ии-агентов-разработки.md
+============================================================
+  [OK] 3cca8222-дата-выхода-chatgpt.md: 0 facts
+  [OK] 0af2356a-исследования-влияния-благодарности-на-ответы-ии.md: 0 facts
+  [OK] 37304bf1-сервисы-для-создания-ии-агентов-разработки.md: 0 facts
+  [OK] 758e1b1c-лимит-токенов-и-место-для-ответа.md: 0 facts
+  [OK] 2cef2124-готовые-ai-сервисы-для-связанных-чатов.md: 0 facts
+  [OK] d0edcf3d-правила-кода-и-структуры-для-ии.md: 0 facts
+  [OK] b00acada-создание-чата-с-deepseek-api.md: 0 facts
+  [OK] 2198a4a2-настройка-субагентов-cline-в-vs-code.md: 0 facts
+  [OK] 25fc88ce-смысл-подготовки-арок-приключений-для-ии.md: 5 facts
+  [OK] 2a65b986-анализ-концепции-ии-мастера-для-нри.md: 21 facts
+  [VAL] vision: 3/3 (100%) ✓
+  [VAL] game-design: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for game-design. Continuing but flagged.
+  [VAL] game-loop: 1/1 (100%) ✓
+  [VAL] architecture: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+  [VAL] decisions: 3/3 (100%) ✓
+  [VAL] status: 1/1 (100%) ✓
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 5/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-05/92a7b131-советы-по-дизайну-сайта-для-начинающих.md ... 2026-05-06/b8bf8a82-объяснение-github-терминов.md
+============================================================
+  [OK] 2b7f9cc7-почему-powershell-не-принимает.md: 0 facts
+  [OK] d903e484-запрос-url-для-seo-анализа.md: 0 facts
+  [OK] 7e458c4b-правильная-работа-с-контрибуциями-на-github.md: 0 facts
+  [OK] 7e24b9dc-ии-сервисы-для-дизайна-сайтов.md: 0 facts
+  [OK] e3dd86e5-hostland-mysql-удаленное-подключение.md: 0 facts
+  [OK] b8bf8a82-объяснение-github-терминов.md: 0 facts
+  [OK] 113e05eb-мобильный-доступ-к-cline-через-mcp.md: 0 facts
+  [OK] 5d10d206-локальный-запуск-deepseek-модели.md: 0 facts
+  [OK] d2d990c8-chatdev-изменение-существующих-проектов.md: 0 facts
+  [OK] 92a7b131-советы-по-дизайну-сайта-для-начинающих.md: 0 facts
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 6/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-06/bfa4dca6-анализ-сайта-и-стратегия-перезапуска.md ... 2026-05-08/280d9976-тестовый-запрос-и-готовность-помочь.md
+============================================================
+  [OK] 79e6d2d6-планирование-игрового-проекта.md: 0 facts
+  [OK] f5ef3bd2-cline-terminal-hang-fix-for-python-commands.md: 0 facts
+  [OK] 51272394-подключение-deepseek-api-к-github.md: 0 facts
+  [OK] e588b2e2-ограничения-github-actions-opencode-с-api-ключом-ии.md: 0 facts
+  [OK] cd1705a6-почему-cline-создает-файлы-в-vscode.md: 0 facts
+  [OK] 280d9976-тестовый-запрос-и-готовность-помочь.md: 0 facts
+  [OK] 9cdb6ab0-объяснение-background-edit-в-cline.md: 0 facts
+  [OK] 0550f2ea-удаление-диаграмм-через-miro-api.md: 0 facts
+  [OK] bfa4dca6-анализ-сайта-и-стратегия-перезапуска.md: 0 facts
+  [OK] a7e3f19e-объяснение-dependency-graph-и-update-pip-graph.md: 0 facts
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 7/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-08/3a7b39ff-тест-готовности-к-вопросам.md ... 2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md
+============================================================
+  [OK] 58c154c2-тест-готовности-помощника.md: 0 facts
+  [OK] 85aa1449-github-branch-comparison-explanation.md: 0 facts
+  [OK] 3a7b39ff-тест-готовности-к-вопросам.md: 0 facts
+  [OK] 4d457314-github-actions-в-не-мастер-ветке.md: 0 facts
+  [OK] 0d9736a9-mcp-server-recommendations-for-github-cline.md: 0 facts
+  [OK] 299056f2-объяснение-нативного-api-эмбеддинга.md: 0 facts
+  [OK] 58b496f4-mcp-серверы-github-actions-vscode-cline.md: 0 facts
+  [OK] 16677b4b-создание-тз-для-живого-дневника-проекта.md: 14 facts
+  [OK] 0622aeda-концепция-памяти-и-наследия-мира-экзис.md: 14 facts
+  [OK] 3538416a-финальное-тз-для-ии-агента-мануса.md: 30 facts
+  [VAL] vision: 2/2 (100%) ✓
+  [VAL] game-design: 1/2 (50%) ✗ FAIL
+  [WARN] Validation <95% for game-design. Continuing but flagged.
+  [VAL] api-spec: 3/3 (100%) ✓
+  [VAL] frontend: 2/2 (100%) ✓
+  [VAL] architecture: 1/4 (25%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+  [VAL] decisions: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for decisions. Continuing but flagged.
+  [VAL] status: 3/3 (100%) ✓
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 8/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md ... 2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md
+============================================================
+  [OK] 65772813-объяснение-add-и-llm-мастера.md: 0 facts
+  [OK] 7a7c0019-запрос-ссылки-на-документацию-api.md: 0 facts
+  [OK] aba42d7f-происхождение-терминов-эксис-и-анима.md: 0 facts
+  [OK] c56537bd-частота-промтов-ии-как-бога.md: 0 facts
+  [OK] 2a3d56bf-difference-in-answers-with-and-without-reasoning.md: 5 facts
+  [OK] 9b8e740a-инструкция-проверки-приложения-экзис.md: 14 facts
+  [OK] 6b493ff0-создание-свитка-испытаний-экзис.md: 16 facts
+  [OK] adfe6475-создание-системного-промта-для-экс-ис.md: 17 facts
+  [OK] 435caf1e-техническое-задание-экзис-архитектор-миров.md: 26 facts
+  [OK] a55c0d1a-техническое-задание-v02-экзис.md: 24 facts
+  [VAL] vision: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for vision. Continuing but flagged.
+  [VAL] game-design: 3/3 (100%) ✓
+  [VAL] game-loop: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for game-loop. Continuing but flagged.
+  [VAL] api-spec: 1/4 (25%) ✗ FAIL
+  [WARN] Validation <95% for api-spec. Continuing but flagged.
+  [VAL] frontend: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for frontend. Continuing but flagged.
+  [VAL] architecture: 3/3 (100%) ✓
+  [VAL] decisions: 3/3 (100%) ✓
+  [VAL] status: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for status. Continuing but flagged.
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 9/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md ... 2026-05-13/0182eb30-уточнение-задачи-для-промпта.md
+============================================================
+  [OK] 14d5d9d4-уточнение-задачи-для-создания-промпта.md: 0 facts
+  [OK] 358f1be6-llm-работа-и-составление-промптов.md: 0 facts
+  [OK] 7fb1a747-как-дать-доступ-к-проекту-на-github.md: 0 facts
+  [OK] 3b146c92-анализ-ии-мастера-в-adnd-игре.md: 0 facts
+  [OK] 0182eb30-уточнение-задачи-для-промпта.md: 0 facts
+  [OK] 75a1e9a0-настройка-vds-сервера-для-чата.md: 0 facts
+  [OK] ce57ad46-самосознание-ии-создает-мир.md: 5 facts
+  [OK] d66b76e4-создание-текста-для-первого-экрана-игры.md: 8 facts
+  [OK] 7c2a6e45-создание-логического-промта-для-ии-мастера.md: 12 facts
+  [OK] 1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md: 17 facts
+  [VAL] vision: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for vision. Continuing but flagged.
+  [VAL] game-design: 1/1 (100%) ✓
+  [VAL] frontend: 3/3 (100%) ✓
+  [VAL] architecture: 0/3 (0%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+  [VAL] decisions: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for decisions. Continuing but flagged.
+  [VAL] status: 3/3 (100%) ✓
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 10/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md ... 2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md
+============================================================
+  [OK] 00a1f5ca-готовые-веб-интерфейсы-для-cline-cli.md: 0 facts
+  [OK] 023073aa-поиск-коробочных-решений-на-github.md: 0 facts
+  [OK] 6a83afbe-сбор-информации-о-компонентах-для-аудита.md: 0 facts
+  [OK] 4fc125be-анализ-и-переработка-тз-вечный-архив.md: 0 facts
+  [OK] 03eff719-объяснение-файнтюнинга.md: 0 facts
+  [OK] 480e1f3e-анализ-тз-и-уточняющие-вопросы.md: 0 facts
+  [OK] 81fa1819-финальное-руководство-по-разработке-mvp.md: 12 facts
+  [OK] 55913f2c-ai-dm-architecture-audit-and-recommendations.md: 9 facts
+  [OK] 456b50dd-eternal-archive-memory-subsystem-technical-specification.md: 9 facts
+  [OK] 1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md: 16 facts
+  [VAL] game-loop: 3/3 (100%) ✓
+  [VAL] api-spec: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for api-spec. Continuing but flagged.
+  [VAL] frontend: 1/1 (100%) ✓
+  [VAL] architecture: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for architecture. Continuing but flagged.
+  [VAL] decisions: 3/3 (100%) ✓
+  [VAL] status: 3/3 (100%) ✓
+
+Batch complete. Moving to next...
+
+############################################################
+# BATCH 11/11
+############################################################
+
+============================================================
+Processing batch: chats 2026-05-14/a34f410b-поиск-пропусков-в-тз.md ... 2026-05-15/c723960f-создание-промпта-по-запросу.md
+============================================================
+  [OK] b4ef2128-пропуски-текста-в-руководстве-тз.md: 0 facts
+  [OK] a34f410b-поиск-пропусков-в-тз.md: 0 facts
+  [OK] 4491e363-советы-по-архитектуре-кода-для-llm.md: 0 facts
+  [OK] 8bd28a54-систематизация-логики-веб-игры.md: 0 facts
+  [OK] c723960f-создание-промпта-по-запросу.md: 0 facts
+  [OK] ed14238e-финальная-версия-руководства-экс-ис.md: 12 facts
+  [OK] 501aab82-обсуждение-архитектуры-system-prompt-v5.md: 22 facts
+  [VAL] vision: 1/3 (33%) ✗ FAIL
+  [WARN] Validation <95% for vision. Continuing but flagged.
+  [VAL] game-design: 3/3 (100%) ✓
+  [VAL] api-spec: 2/2 (100%) ✓
+  [VAL] frontend: 1/1 (100%) ✓
+  [VAL] architecture: 3/3 (100%) ✓
+  [VAL] decisions: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for decisions. Continuing but flagged.
+  [VAL] status: 2/3 (67%) ✗ FAIL
+  [WARN] Validation <95% for status. Continuing but flagged.
+
+Batch complete. Moving to next...
+
+============================================================
+All batches processed!
+============================================================
