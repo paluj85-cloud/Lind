@@ -88,10 +88,10 @@ When receiving ANY new task, follow this pipeline strictly:
 - The template has 5 immutable tags: `<role>`, `<task>`, `<context>`, `<format>`, `<constraints>`.
 - Do NOT change the template structure — only fill in the sections.
 - Save the prompt to `project_memory/prompts/`.
-- Give the user the instruction: «Вставь это в новый чат Cline (Act). Прочти [prompt file]. Начинай.»
+- Give the user the instruction: «Прочти [prompt file]. Начинай выполнение.»
 
 ### Phase 5: Acceptance & Archive
-- After the task is executed in a new chat, verify the result against acceptance criteria.
+- After the task is executed, verify the result against acceptance criteria.
 - Move task files from `project_memory/prompts/` to `project_memory/previous/`.
 - Add an entry to `project_memory/CHANGELOG.md`.
 - Report: «Задача выполнена и задокументирована.»

@@ -11,3 +11,10 @@
 - Plan: project_memory/plans/2026-05-15_adnd-knowledge-structure.md
 - Status: COMPLETE
 - Next: Acceptance & Archive (close tails), then content population from chat_deepseek/
+
+## 2026-05-15 17:35 — Phase 5: Acceptance & Archive for adnd-knowledge-structure
+- Phase: Phase 5 (Acceptance & Archive)
+- Action: Moved plan to previous/, added CHANGELOG entry, git push
+- Plan: project_memory/previous/2026-05-15_adnd-knowledge-structure.md
+- Status: COMPLETE
+- Next: Content population of adnd-knowledge/ from chat_deepseek/ Lind|Exis_Project chats (32 relevant)

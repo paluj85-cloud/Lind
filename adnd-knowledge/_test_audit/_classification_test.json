@@ -1,0 +1,45 @@
+{
+  "test_run": "etap-0",
+  "date": "2026-05-15",
+  "chats": {
+    "023073aa": {
+      "title": "поиск-коробочных-решений-на-github",
+      "sections": {
+        "vision": "none",
+        "game-design": "none",
+        "game-loop": "none",
+        "api-spec": "none",
+        "frontend": "none",
+        "architecture": "none",
+        "decisions": "none",
+        "status": "none"
+      }
+    },
+    "8bd28a54": {
+      "title": "систематизация-логики-веб-игры",
+      "sections": {
+        "vision": "none",
+        "game-design": "none",
+        "game-loop": "none",
+        "api-spec": "none",
+        "frontend": "none",
+        "architecture": "none",
+        "decisions": "none",
+        "status": "none"
+      }
+    },
+    "81fa1819": {
+      "title": "финальное-руководство-по-разработке-mvp",
+      "sections": {
+        "vision": "high",
+        "game-design": "high",
+        "game-loop": "high",
+        "api-spec": "high",
+        "frontend": "high",
+        "architecture": "high",
+        "decisions": "high",
+        "status": "high"
+      }
+    }
+  }
+}

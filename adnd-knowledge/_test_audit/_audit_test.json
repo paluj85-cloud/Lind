@@ -1,0 +1,319 @@
+{
+  "test_run": "etap-0",
+  "date": "2026-05-15",
+  "sections": {
+    "vision": [
+      {
+        "id": "test-v-001",
+        "fact": "Проект 'Экс-Ис: Архитектор Миров' — это AI-ведомая настольная RPG, где AI-мастер (Экс-Ис) создаёт миры, проводит игровые сессии и ведёт нарратив, а AI-помощник (Анима) выступает внутренним голосом игрока.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Игровой мир управляется AI-мастером по имени Экс-Ис. AI-помощник игрока — Анима. Основной сценарий — одиночная текстовая RPG с пошаговой системой подачи заявок.",
+        "topic": "концепция проекта"
+      },
+      {
+        "id": "test-v-002",
+        "fact": "MVP v0.1 фокусируется на одиночной игре, v0.2 добавляет мультиплеер.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Основной сценарий — одиночная текстовая RPG с пошаговой системой подачи заявок.",
+        "topic": "версионирование"
+      },
+      {
+        "id": "test-v-003",
+        "fact": "Игровой сеттинг — высокое фэнтези с магией, расами и классами в духе D&D.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Игровой мир — высокое фэнтези. Магия, расы (люди, эльфы, дворфы и т.д.), классы (воин, маг, плут и т.д.). Всё в духе классической D&D.",
+        "topic": "сеттинг"
+      }
+    ],
+    "game-design": [
+      {
+        "id": "test-gd-001",
+        "fact": "Характеристики персонажа: HP (очки здоровья), MP (очки маны), характеристики (сила, ловкость, интеллект, мудрость, харизма, телосложение), навыки, инвентарь.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Характеристики: HP (Health Points), MP (Mana Points), Статы (Сила, Ловкость, Интеллект, Мудрость, Харизма, Телосложение), Навыки (Скрытность, Атлетика, Магия и т.д.), Инвентарь.",
+        "topic": "характеристики персонажа"
+      },
+      {
+        "id": "test-gd-002",
+        "fact": "Механика бросков: d20 + модификатор характеристики + бонус навыка против DC (сложности). Натуральная 1 — критический провал, натуральная 20 — критический успех.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Бросок: d20 + модификатор характеристики + бонус навыка. Натуральная 1 — всегда провал (критический). Натуральная 20 — всегда успех (критический).",
+        "topic": "механика бросков"
+      },
+      {
+        "id": "test-gd-003",
+        "fact": "Ведётся модель поддержания (maintenance): голод, жажда, усталость, температура. Игнорирование снижает HP.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Модель обслуживания (maintenance): голод (0-100), жажда (0-100), усталость (0-100), температура (градусы). При достижении 0 по голоду/жажде начинают снижаться HP.",
+        "topic": "механика maintenance"
+      },
+      {
+        "id": "test-gd-004",
+        "fact": "Скрытые броски: игрок не знает DC и результат. Модель описывает субъективное восприятие персонажа.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Скрытые броски: некоторые проверки делаются без ведома игрока. Экс-Ис бросает скрытно, результат игроку не сообщается, вместо этого описывается субъективное восприятие персонажа.",
+        "topic": "скрытые броски"
+      }
+    ],
+    "game-loop": [
+      {
+        "id": "test-gl-001",
+        "fact": "Игровой цикл состоит из фаз: 1) Сбор заявок от игроков, 2) Первый проход LLM (нарратив + запросы бросков), 3) Броски игроков, 4) Второй проход LLM (финализация с результатами бросков), 5) Применение изменений мира.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Цикл хода: 1. Сбор заявок. 2. Первый вызов Экс-Ис. 3. Броски игроков. 4. Второй вызов Экс-Ис (финальный). 5. Применение изменений.",
+        "topic": "цикл хода"
+      },
+      {
+        "id": "test-gl-002",
+        "fact": "Порядок хода определяется случайно в начале сессии и после каждого раунда.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "В начале каждой сессии (и после каждого полного раунда) порядок хода определяется случайно.",
+        "topic": "порядок хода"
+      },
+      {
+        "id": "test-gl-003",
+        "fact": "Игрок может отправить заявку типа 'say' (реплика), 'do' (действие), или оба. Пустые заявки допустимы — персонаж бездействует.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Типы заявок игрока: 'say' (реплика), 'do' (действие). Можно отправить и то, и другое. Пустая заявка (ни say, ни do) допустима — персонаж просто наблюдает/ждёт.",
+        "topic": "типы заявок"
+      },
+      {
+        "id": "test-gl-004",
+        "fact": "Голосование о кике: игроки могут инициировать голосование об исключении неактивного игрока. Нужно большинство активных игроков. Таймаут голосования — 30 секунд.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Голосование о кике: любой игрок может инициировать голосование об исключении неактивного. Нужно большинство активных игроков. Таймаут — 30 секунд.",
+        "topic": "голосование о кике"
+      },
+      {
+        "id": "test-gl-005",
+        "fact": "При обрыве WebSocket игрок остаётся в очереди. Его можно кикнуть голосованием. При возвращении он переводится в active.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "При дисконнекте WebSocket игрок остаётся в очереди, пока его не кикнут голосованием или он не вернётся. При возвращении — active.",
+        "topic": "обработка дисконнекта"
+      }
+    ],
+    "api-spec": [
+      {
+        "id": "test-api-001",
+        "fact": "WebSocket эндпоинт: /ws/{session_id}/{player_name} для подключения игрока к игровой сессии.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Эндпоинт WebSocket: /ws/{session_id}/{player_name}. Подключение к игровой сессии.",
+        "topic": "WebSocket эндпоинт"
+      },
+      {
+        "id": "test-api-002",
+        "fact": "REST эндпоинты: POST /sessions/create — создание сессии, GET /sessions/{session_id} — статус сессии.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "POST /sessions/create — создать игровую сессию. GET /sessions/{session_id} — получить статус сессии.",
+        "topic": "REST эндпоинты"
+      },
+      {
+        "id": "test-api-003",
+        "fact": "WebSocket-сообщения от клиента: {type: 'action', action_type: 'say'|'do', content: str}, {type: 'end_turn'}, {type: 'dice_roll', roll_id: str}, {type: 'kick_vote_start', target: str}, {type: 'kick_vote', vote: 'yes'|'no'}.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Сообщения клиента: action (say/do), end_turn, dice_roll, kick_vote_start, kick_vote.",
+        "topic": "формат сообщений клиента"
+      },
+      {
+        "id": "test-api-004",
+        "fact": "WebSocket-сообщения от сервера: narrative, dice_request, turn_order, player_joined, player_left, kick_vote_started, kick_vote_update, kick_vote_result, anima_clarification, game_over.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Сообщения сервера: narrative, dice_request, turn_order, player_joined, player_left, kick_vote_started, kick_vote_result, anima_clarification, game_over.",
+        "topic": "формат сообщений сервера"
+      }
+    ],
+    "frontend": [
+      {
+        "id": "test-fe-001",
+        "fact": "Интерфейс — SPA (одностраничное приложение) на vanilla HTML/CSS/JS. Компоненты: чат-лог, список порядка хода, панель заявки, модальное окно броска, панель Анимы, панель игрока (HP, MP, инвентарь), интерфейс голосования.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Создать файл static/index.html, содержащий полный HTML/CSS/JavaScript. Основные компоненты: Подключение к сессии, Чат-лог, Список порядка хода, Панель заявки, Модальное окно броска, Панель Анимы, Панель игрока (HP, MP, инвентарь), Интерфейс голосования.",
+        "topic": "состав интерфейса"
+      },
+      {
+        "id": "test-fe-002",
+        "fact": "JavaScript-логика обрабатывает все типы сообщений: narrative, dice_request, turn_order, player_joined/left, kick_vote_*, anima_clarification.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "JavaScript-логика должна обрабатывать все типы сообщений, включая kick_vote_* и anima_clarification.",
+        "topic": "обработка сообщений на клиенте"
+      },
+      {
+        "id": "test-fe-003",
+        "fact": "При получении anima_clarification показывается всплывающее окно с предложением уточнить заявку.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Обработка сообщения anima_clarification: при получении показывать всплывающее окно с предложением уточнить заявку.",
+        "topic": "интерфейс уточнений Анимы"
+      }
+    ],
+    "architecture": [
+      {
+        "id": "test-arch-001",
+        "fact": "Технологический стек: Python 3.11+, FastAPI + Uvicorn, Neo4j (графовая БД для связей мира), ChromaDB (векторная БД для нарративной памяти), vanilla HTML/CSS/JS на фронтенде, WebSocket для реального времени.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Стек: Python 3.11+, FastAPI + Uvicorn, Neo4j (графовая база), ChromaDB (векторная база), Vanilla HTML/CSS/JS, WebSocket.",
+        "topic": "технологический стек"
+      },
+      {
+        "id": "test-arch-002",
+        "fact": "Структура проекта: game/ (orchestrator.py, session_store.py, xml_parser.py, dice.py, context_manager.py, llm_client.py, prompts/), models/ (Pydantic), static/ (index.html), tests/, docker-compose.yml.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Структура проекта: game/ (orchestrator.py, session_store.py, xml_parser.py, dice.py, context_manager.py, llm_client.py, prompts/), models/ (Pydantic), static/ (index.html), tests/.",
+        "topic": "структура проекта"
+      },
+      {
+        "id": "test-arch-003",
+        "fact": "ContextManager инкапсулирует всю логику сборки контекста для промпта Экс-Ис: summary, hidden scroll, truth scroll, quest log, seeds, entities, character sheets.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "ContextManager инкапсулирует всю логику сборки данных для промпта Экс-Ис.",
+        "topic": "ContextManager"
+      },
+      {
+        "id": "test-arch-004",
+        "fact": "XML-парсер устойчив к ошибкам модели: при битых тегах или невалидном выводе возвращает ошибку и не повреждает мир.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "XML-парсер устойчив к ошибкам модели, при сбое возвращает ошибку и не повреждает мир.",
+        "topic": "XML-парсер"
+      },
+      {
+        "id": "test-arch-005",
+        "fact": "DeepSeek API используется через openai-совместимый клиент: AsyncOpenAI с base_url='https://api.deepseek.com'. Для Экс-Ис thinking=enabled (max_tokens=4096), для Анимы thinking=disabled (max_tokens=1024).",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "client = openai.AsyncOpenAI(api_key=settings.deepseek_api_key, base_url='https://api.deepseek.com')",
+        "topic": "DeepSeek API интеграция"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "test-dec-001",
+        "fact": "Решение: промпт Экс-Ис разбит на блоки: <narrative> (нарратив), <dice_request> (запросы бросков), <entity_update> (изменения мира). Формат — XML-подобный для парсинга.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Промпт Экс-Ис возвращает ответ в XML-подобном формате: <narrative>...</narrative> <dice_request>...</dice_request> <entity_update>...</entity_update>.",
+        "topic": "формат ответа LLM"
+      },
+      {
+        "id": "test-dec-002",
+        "fact": "Решение: два вызова LLM за ход. Второй проход игнорирует вложенные dice_request и жёстко использует результаты бросков, вычисленные сервером.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Два вызова LLM за ход. Второй проход игнорирует вложенные dice_request. Результаты бросков уже вычислены и вставлены в промпт как фактические исходы.",
+        "topic": "два прохода LLM"
+      },
+      {
+        "id": "test-dec-003",
+        "fact": "Решение: перехват противоречивых заявок (say + do) через Аниму перед вызовом LLM. Игрок получает anima_clarification и должен переотправить заявку.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Проверка на противоречивые заявки (say vs do) перед вызовом LLM. Игрок получает уточняющее сообщение.",
+        "topic": "перехват противоречий"
+      },
+      {
+        "id": "test-dec-004",
+        "fact": "Решение: не использовать таймауты на действия игроков или броски. Ход ждёт, пока все не нажмут 'Конец хода' или не будут кикнуты.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Ни одного таймаута на действия игроков или броски.",
+        "topic": "отказ от таймаутов"
+      },
+      {
+        "id": "test-dec-005",
+        "fact": "Решение: DC (сложность) броска не показывается игроку даже для открытых бросков. Игрок видит только итоговый статус: success, fail, critical_success, critical_fail.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Броски запрашиваются, DC не показывается, критические исходы корректны.",
+        "topic": "скрытие DC"
+      }
+    ],
+    "status": [
+      {
+        "id": "test-sta-001",
+        "fact": "MVP состоит из 8 этапов: 1) Структура проекта, 2) Модели данных, 3) WebSocket и менеджер сессий, 4) Игровой оркестратор, 5) Улучшения оркестратора, 6) Промпты и DeepSeek, 7) Клиентский SPA, 8) Тестирование и Docker.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Этап 1: Структура проекта... Этап 8: Интеграционное тестирование и docker-compose.",
+        "topic": "этапы MVP"
+      },
+      {
+        "id": "test-sta-002",
+        "fact": "Чек-лист приёмки MVP содержит 19 пунктов, покрывающих мультиплеер, броски, голосование, дисконнекты, XML-парсер, ContextManager, перехват противоречий, второй проход LLM.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Общий чек-лист приёмки MVP... 19 пунктов.",
+        "topic": "чек-лист приёмки"
+      },
+      {
+        "id": "test-sta-003",
+        "fact": "Тесты покрывают: полный цикл игры, голосование, beyond (после финала), уточнение заявки через Аниму. Запуск: pytest tests/.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "Написать тесты в tests/test_integration.py: Сценарий полного цикла игры, голосования, beyond, уточнения заявки через Аниму.",
+        "topic": "тестовое покрытие"
+      },
+      {
+        "id": "test-sta-004",
+        "fact": "Развёртывание: docker-compose up --build запускает все сервисы одной командой.",
+        "confidence": "high",
+        "source_chat": "81fa1819",
+        "source_date": "2026-05-14",
+        "source_quote": "docker-compose up --build запускает все сервисы.",
+        "topic": "развёртывание"
+      }
+    ]
+  }
+}

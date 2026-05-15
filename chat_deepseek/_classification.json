@@ -1,0 +1,703 @@
+{
+  "total": 115,
+  "categories": {
+    "Engineering_Non_IT": 8,
+    "Tech_Stack_Comparison": 5,
+    "DeepSeek_API": 20,
+    "Cline_VSCode": 48,
+    "Lind|Exis_Project": 32,
+    "Other": 2
+  },
+  "chats": [
+    {
+      "file": "2026-04-15/df418aa7-настройка-отображения-в-autocad.md",
+      "date": "2026-04-15",
+      "name": "df418aa7-настройка-отображения-в-autocad",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-04-21/3d5532a5-сравнение-postgresql-и-sqlite.md",
+      "date": "2026-04-21",
+      "name": "3d5532a5-сравнение-postgresql-и-sqlite",
+      "category": "Tech_Stack_Comparison"
+    },
+    {
+      "file": "2026-04-21/bb27f97f-бесплатные-запросы-deepseek-api.md",
+      "date": "2026-04-21",
+      "name": "bb27f97f-бесплатные-запросы-deepseek-api",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-21/bf276322-выбор-css-фреймворка-в-2026.md",
+      "date": "2026-04-21",
+      "name": "bf276322-выбор-css-фреймворка-в-2026",
+      "category": "Tech_Stack_Comparison"
+    },
+    {
+      "file": "2026-04-21/e3741e54-сравнение-чата-и-api-deepseek.md",
+      "date": "2026-04-21",
+      "name": "e3741e54-сравнение-чата-и-api-deepseek",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-21/fb6ab6f5-openvpn-клиенты-windows-с-выбором-программ.md",
+      "date": "2026-04-21",
+      "name": "fb6ab6f5-openvpn-клиенты-windows-с-выбором-программ",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-04-22/647f2b92-основы-работы-с-fastapi-на-хостинге.md",
+      "date": "2026-04-22",
+      "name": "647f2b92-основы-работы-с-fastapi-на-хостинге",
+      "category": "Tech_Stack_Comparison"
+    },
+    {
+      "file": "2026-04-22/6e4ca94c-сравнение-fastapi-и-php.md",
+      "date": "2026-04-22",
+      "name": "6e4ca94c-сравнение-fastapi-и-php",
+      "category": "Tech_Stack_Comparison"
+    },
+    {
+      "file": "2026-04-22/cfb00e16-создание-файла-для-проверки-python-на-поддомене.md",
+      "date": "2026-04-22",
+      "name": "cfb00e16-создание-файла-для-проверки-python-на-поддомене",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-23/0bb22946-советы-по-ии-для-чат-бота-на-python.md",
+      "date": "2026-04-23",
+      "name": "0bb22946-советы-по-ии-для-чат-бота-на-python",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-23/344843f2-готовые-решения-для-веб-чата.md",
+      "date": "2026-04-23",
+      "name": "344843f2-готовые-решения-для-веб-чата",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-23/6f1efe2e-ai-ассистенты-программирования-обзор-2026.md",
+      "date": "2026-04-23",
+      "name": "6f1efe2e-ai-ассистенты-программирования-обзор-2026",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-23/b94f9d5b-решение-ошибки-npm-в-vs-code.md",
+      "date": "2026-04-23",
+      "name": "b94f9d5b-решение-ошибки-npm-в-vs-code",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-23/ef207b3a-как-включить-ftp-в-vs-code.md",
+      "date": "2026-04-23",
+      "name": "ef207b3a-как-включить-ftp-в-vs-code",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-24/1fdbce25-сравнение-copilot-и-cline-для-vs-code.md",
+      "date": "2026-04-24",
+      "name": "1fdbce25-сравнение-copilot-и-cline-для-vs-code",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-24/50b7a4f6-отсутствие-распознавания-голоса-у-ии.md",
+      "date": "2026-04-24",
+      "name": "50b7a4f6-отсутствие-распознавания-голоса-у-ии",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-24/8e1ff011-ресурсы-распознавания-голоса-для-python.md",
+      "date": "2026-04-24",
+      "name": "8e1ff011-ресурсы-распознавания-голоса-для-python",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-24/cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+      "date": "2026-04-24",
+      "name": "cf2879fe-составление-тз-для-игры-с-ии-мастером",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-04-24/f1441a57-корректное-увольнение-конструктора.md",
+      "date": "2026-04-24",
+      "name": "f1441a57-корректное-увольнение-конструктора",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-04-27/3358a41b-хранение-книг-mysql-для-ии.md",
+      "date": "2026-04-27",
+      "name": "3358a41b-хранение-книг-mysql-для-ии",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-04-27/b777d640-cline-kanban-обзор.md",
+      "date": "2026-04-27",
+      "name": "b777d640-cline-kanban-обзор",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-28/45c4285b-обучение-ии-мастерству-игры.md",
+      "date": "2026-04-28",
+      "name": "45c4285b-обучение-ии-мастерству-игры",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-04-28/a9abc620-доработка-таблицы-рас-для-нри.md",
+      "date": "2026-04-28",
+      "name": "a9abc620-доработка-таблицы-рас-для-нри",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-04-28/b26cb602-сюжетные-повороты-и-арки.md",
+      "date": "2026-04-28",
+      "name": "b26cb602-сюжетные-повороты-и-арки",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-04-28/e5ad39b7-снижение-скорости-печати-epson-l15150.md",
+      "date": "2026-04-28",
+      "name": "e5ad39b7-снижение-скорости-печати-epson-l15150",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-04-29/9cabce35-выбор-асинхронной-работы-с-mysql.md",
+      "date": "2026-04-29",
+      "name": "9cabce35-выбор-асинхронной-работы-с-mysql",
+      "category": "Tech_Stack_Comparison"
+    },
+    {
+      "file": "2026-04-29/af59e1fd-проверка-тз-на-ошибки-и-неполноту.md",
+      "date": "2026-04-29",
+      "name": "af59e1fd-проверка-тз-на-ошибки-и-неполноту",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-04-30/0dd0b1a6-как-узнать-версию-deepseek-api.md",
+      "date": "2026-04-30",
+      "name": "0dd0b1a6-как-узнать-версию-deepseek-api",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/44821b3e-deepseek-версия-и-модель.md",
+      "date": "2026-04-30",
+      "name": "44821b3e-deepseek-версия-и-модель",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/49b2dd40-объяснение-anthropic-api.md",
+      "date": "2026-04-30",
+      "name": "49b2dd40-объяснение-anthropic-api",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/75201ce9-отличия-deepseek-v4-flash-и-pro.md",
+      "date": "2026-04-30",
+      "name": "75201ce9-отличия-deepseek-v4-flash-и-pro",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/a6a01044-что-нужно-программисту-помимо-тз.md",
+      "date": "2026-04-30",
+      "name": "a6a01044-что-нужно-программисту-помимо-тз",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/abb70f55-максимальная-длина-текста-deepseek-v4-flash.md",
+      "date": "2026-04-30",
+      "name": "abb70f55-максимальная-длина-текста-deepseek-v4-flash",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-04-30/e3c4f4f2-анализ-тз-на-ошибки.md",
+      "date": "2026-04-30",
+      "name": "e3c4f4f2-анализ-тз-на-ошибки",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-01/25fc88ce-смысл-подготовки-арок-приключений-для-ии.md",
+      "date": "2026-05-01",
+      "name": "25fc88ce-смысл-подготовки-арок-приключений-для-ии",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-01/352ae6af-названия-греющей-подложки-под-матрас.md",
+      "date": "2026-05-01",
+      "name": "352ae6af-названия-греющей-подложки-под-матрас",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-05-01/758e1b1c-лимит-токенов-и-место-для-ответа.md",
+      "date": "2026-05-01",
+      "name": "758e1b1c-лимит-токенов-и-место-для-ответа",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-01/b00acada-создание-чата-с-deepseek-api.md",
+      "date": "2026-05-01",
+      "name": "b00acada-создание-чата-с-deepseek-api",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-02/3cca8222-дата-выхода-chatgpt.md",
+      "date": "2026-05-02",
+      "name": "3cca8222-дата-выхода-chatgpt",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-02/be23118b-облонский-персонаж-анна-каренина.md",
+      "date": "2026-05-02",
+      "name": "be23118b-облонский-персонаж-анна-каренина",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-05-03/8531c86a-тяга-мангала-и-разница-температур.md",
+      "date": "2026-05-03",
+      "name": "8531c86a-тяга-мангала-и-разница-температур",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-05-04/2a65b986-анализ-концепции-ии-мастера-для-нри.md",
+      "date": "2026-05-04",
+      "name": "2a65b986-анализ-концепции-ии-мастера-для-нри",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-04/2cef2124-готовые-ai-сервисы-для-связанных-чатов.md",
+      "date": "2026-05-04",
+      "name": "2cef2124-готовые-ai-сервисы-для-связанных-чатов",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-04/d0edcf3d-правила-кода-и-структуры-для-ии.md",
+      "date": "2026-05-04",
+      "name": "d0edcf3d-правила-кода-и-структуры-для-ии",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/0af2356a-исследования-влияния-благодарности-на-ответы-ии.md",
+      "date": "2026-05-05",
+      "name": "0af2356a-исследования-влияния-благодарности-на-ответы-ии",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-05/2198a4a2-настройка-субагентов-cline-в-vs-code.md",
+      "date": "2026-05-05",
+      "name": "2198a4a2-настройка-субагентов-cline-в-vs-code",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/37304bf1-сервисы-для-создания-ии-агентов-разработки.md",
+      "date": "2026-05-05",
+      "name": "37304bf1-сервисы-для-создания-ии-агентов-разработки",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/92a7b131-советы-по-дизайну-сайта-для-начинающих.md",
+      "date": "2026-05-05",
+      "name": "92a7b131-советы-по-дизайну-сайта-для-начинающих",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/d2d990c8-chatdev-изменение-существующих-проектов.md",
+      "date": "2026-05-05",
+      "name": "d2d990c8-chatdev-изменение-существующих-проектов",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/d903e484-запрос-url-для-seo-анализа.md",
+      "date": "2026-05-05",
+      "name": "d903e484-запрос-url-для-seo-анализа",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-05/e3dd86e5-hostland-mysql-удаленное-подключение.md",
+      "date": "2026-05-05",
+      "name": "e3dd86e5-hostland-mysql-удаленное-подключение",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/113e05eb-мобильный-доступ-к-cline-через-mcp.md",
+      "date": "2026-05-06",
+      "name": "113e05eb-мобильный-доступ-к-cline-через-mcp",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/2b7f9cc7-почему-powershell-не-принимает.md",
+      "date": "2026-05-06",
+      "name": "2b7f9cc7-почему-powershell-не-принимает",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/5d10d206-локальный-запуск-deepseek-модели.md",
+      "date": "2026-05-06",
+      "name": "5d10d206-локальный-запуск-deepseek-модели",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-06/7e24b9dc-ии-сервисы-для-дизайна-сайтов.md",
+      "date": "2026-05-06",
+      "name": "7e24b9dc-ии-сервисы-для-дизайна-сайтов",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/7e458c4b-правильная-работа-с-контрибуциями-на-github.md",
+      "date": "2026-05-06",
+      "name": "7e458c4b-правильная-работа-с-контрибуциями-на-github",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/b8bf8a82-объяснение-github-терминов.md",
+      "date": "2026-05-06",
+      "name": "b8bf8a82-объяснение-github-терминов",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/bfa4dca6-анализ-сайта-и-стратегия-перезапуска.md",
+      "date": "2026-05-06",
+      "name": "bfa4dca6-анализ-сайта-и-стратегия-перезапуска",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-06/f5ef3bd2-cline-terminal-hang-fix-for-python-commands.md",
+      "date": "2026-05-06",
+      "name": "f5ef3bd2-cline-terminal-hang-fix-for-python-commands",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-07/0550f2ea-удаление-диаграмм-через-miro-api.md",
+      "date": "2026-05-07",
+      "name": "0550f2ea-удаление-диаграмм-через-miro-api",
+      "category": "Other"
+    },
+    {
+      "file": "2026-05-07/51272394-подключение-deepseek-api-к-github.md",
+      "date": "2026-05-07",
+      "name": "51272394-подключение-deepseek-api-к-github",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-07/79e6d2d6-планирование-игрового-проекта.md",
+      "date": "2026-05-07",
+      "name": "79e6d2d6-планирование-игрового-проекта",
+      "category": "Other"
+    },
+    {
+      "file": "2026-05-07/9cdb6ab0-объяснение-background-edit-в-cline.md",
+      "date": "2026-05-07",
+      "name": "9cdb6ab0-объяснение-background-edit-в-cline",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-07/a7e3f19e-объяснение-dependency-graph-и-update-pip-graph.md",
+      "date": "2026-05-07",
+      "name": "a7e3f19e-объяснение-dependency-graph-и-update-pip-graph",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-07/cd1705a6-почему-cline-создает-файлы-в-vscode.md",
+      "date": "2026-05-07",
+      "name": "cd1705a6-почему-cline-создает-файлы-в-vscode",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-07/e588b2e2-ограничения-github-actions-opencode-с-api-ключом-ии.md",
+      "date": "2026-05-07",
+      "name": "e588b2e2-ограничения-github-actions-opencode-с-api-ключом-ии",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-08/280d9976-тестовый-запрос-и-готовность-помочь.md",
+      "date": "2026-05-08",
+      "name": "280d9976-тестовый-запрос-и-готовность-помочь",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-08/3a7b39ff-тест-готовности-к-вопросам.md",
+      "date": "2026-05-08",
+      "name": "3a7b39ff-тест-готовности-к-вопросам",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-08/4d457314-github-actions-в-не-мастер-ветке.md",
+      "date": "2026-05-08",
+      "name": "4d457314-github-actions-в-не-мастер-ветке",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-08/58b496f4-mcp-серверы-github-actions-vscode-cline.md",
+      "date": "2026-05-08",
+      "name": "58b496f4-mcp-серверы-github-actions-vscode-cline",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-08/58c154c2-тест-готовности-помощника.md",
+      "date": "2026-05-08",
+      "name": "58c154c2-тест-готовности-помощника",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-08/85aa1449-github-branch-comparison-explanation.md",
+      "date": "2026-05-08",
+      "name": "85aa1449-github-branch-comparison-explanation",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-09/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+      "date": "2026-05-09",
+      "name": "0622aeda-концепция-памяти-и-наследия-мира-экзис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/0d9736a9-mcp-server-recommendations-for-github-cline.md",
+      "date": "2026-05-09",
+      "name": "0d9736a9-mcp-server-recommendations-for-github-cline",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-09/16677b4b-создание-тз-для-живого-дневника-проекта.md",
+      "date": "2026-05-09",
+      "name": "16677b4b-создание-тз-для-живого-дневника-проекта",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/299056f2-объяснение-нативного-api-эмбеддинга.md",
+      "date": "2026-05-09",
+      "name": "299056f2-объяснение-нативного-api-эмбеддинга",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-09/2c222896-инн-обязателен-для-ип-при-регистрации-домена.md",
+      "date": "2026-05-09",
+      "name": "2c222896-инн-обязателен-для-ип-при-регистрации-домена",
+      "category": "Engineering_Non_IT"
+    },
+    {
+      "file": "2026-05-09/3538416a-финальное-тз-для-ии-агента-мануса.md",
+      "date": "2026-05-09",
+      "name": "3538416a-финальное-тз-для-ии-агента-мануса",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/435caf1e-техническое-задание-экзис-архитектор-миров.md",
+      "date": "2026-05-09",
+      "name": "435caf1e-техническое-задание-экзис-архитектор-миров",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/65772813-объяснение-add-и-llm-мастера.md",
+      "date": "2026-05-09",
+      "name": "65772813-объяснение-add-и-llm-мастера",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/6b493ff0-создание-свитка-испытаний-экзис.md",
+      "date": "2026-05-09",
+      "name": "6b493ff0-создание-свитка-испытаний-экзис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/7a7c0019-запрос-ссылки-на-документацию-api.md",
+      "date": "2026-05-09",
+      "name": "7a7c0019-запрос-ссылки-на-документацию-api",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-09/9b8e740a-инструкция-проверки-приложения-экзис.md",
+      "date": "2026-05-09",
+      "name": "9b8e740a-инструкция-проверки-приложения-экзис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/aba42d7f-происхождение-терминов-эксис-и-анима.md",
+      "date": "2026-05-09",
+      "name": "aba42d7f-происхождение-терминов-эксис-и-анима",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/adfe6475-создание-системного-промта-для-экс-ис.md",
+      "date": "2026-05-09",
+      "name": "adfe6475-создание-системного-промта-для-экс-ис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-09/c56537bd-частота-промтов-ии-как-бога.md",
+      "date": "2026-05-09",
+      "name": "c56537bd-частота-промтов-ии-как-бога",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-10/2a3d56bf-difference-in-answers-with-and-without-reasoning.md",
+      "date": "2026-05-10",
+      "name": "2a3d56bf-difference-in-answers-with-and-without-reasoning",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-10/a55c0d1a-техническое-задание-v02-экзис.md",
+      "date": "2026-05-10",
+      "name": "a55c0d1a-техническое-задание-v02-экзис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-11/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину.md",
+      "date": "2026-05-11",
+      "name": "1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую-машину",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-11/358f1be6-llm-работа-и-составление-промптов.md",
+      "date": "2026-05-11",
+      "name": "358f1be6-llm-работа-и-составление-промптов",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-11/3b146c92-анализ-ии-мастера-в-adnd-игре.md",
+      "date": "2026-05-11",
+      "name": "3b146c92-анализ-ии-мастера-в-adnd-игре",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-11/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+      "date": "2026-05-11",
+      "name": "7c2a6e45-создание-логического-промта-для-ии-мастера",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-11/ce57ad46-самосознание-ии-создает-мир.md",
+      "date": "2026-05-11",
+      "name": "ce57ad46-самосознание-ии-создает-мир",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-12/14d5d9d4-уточнение-задачи-для-создания-промпта.md",
+      "date": "2026-05-12",
+      "name": "14d5d9d4-уточнение-задачи-для-создания-промпта",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-12/75a1e9a0-настройка-vds-сервера-для-чата.md",
+      "date": "2026-05-12",
+      "name": "75a1e9a0-настройка-vds-сервера-для-чата",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-12/7fb1a747-как-дать-доступ-к-проекту-на-github.md",
+      "date": "2026-05-12",
+      "name": "7fb1a747-как-дать-доступ-к-проекту-на-github",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-12/d66b76e4-создание-текста-для-первого-экрана-игры.md",
+      "date": "2026-05-12",
+      "name": "d66b76e4-создание-текста-для-первого-экрана-игры",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-13/0182eb30-уточнение-задачи-для-промпта.md",
+      "date": "2026-05-13",
+      "name": "0182eb30-уточнение-задачи-для-промпта",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-13/456b50dd-eternal-archive-memory-subsystem-technical-specification.md",
+      "date": "2026-05-13",
+      "name": "456b50dd-eternal-archive-memory-subsystem-technical-specification",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-13/480e1f3e-анализ-тз-и-уточняющие-вопросы.md",
+      "date": "2026-05-13",
+      "name": "480e1f3e-анализ-тз-и-уточняющие-вопросы",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-13/4fc125be-анализ-и-переработка-тз-вечный-архив.md",
+      "date": "2026-05-13",
+      "name": "4fc125be-анализ-и-переработка-тз-вечный-архив",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-14/00a1f5ca-готовые-веб-интерфейсы-для-cline-cli.md",
+      "date": "2026-05-14",
+      "name": "00a1f5ca-готовые-веб-интерфейсы-для-cline-cli",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/023073aa-поиск-коробочных-решений-на-github.md",
+      "date": "2026-05-14",
+      "name": "023073aa-поиск-коробочных-решений-на-github",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/03eff719-объяснение-файнтюнинга.md",
+      "date": "2026-05-14",
+      "name": "03eff719-объяснение-файнтюнинга",
+      "category": "DeepSeek_API"
+    },
+    {
+      "file": "2026-05-14/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+      "date": "2026-05-14",
+      "name": "1c11a9e6-пошаговое-руководство-для-ai-агента-cline",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+      "date": "2026-05-14",
+      "name": "55913f2c-ai-dm-architecture-audit-and-recommendations",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-14/6a83afbe-сбор-информации-о-компонентах-для-аудита.md",
+      "date": "2026-05-14",
+      "name": "6a83afbe-сбор-информации-о-компонентах-для-аудита",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/81fa1819-финальное-руководство-по-разработке-mvp.md",
+      "date": "2026-05-14",
+      "name": "81fa1819-финальное-руководство-по-разработке-mvp",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-14/a34f410b-поиск-пропусков-в-тз.md",
+      "date": "2026-05-14",
+      "name": "a34f410b-поиск-пропусков-в-тз",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/b4ef2128-пропуски-текста-в-руководстве-тз.md",
+      "date": "2026-05-14",
+      "name": "b4ef2128-пропуски-текста-в-руководстве-тз",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-14/ed14238e-финальная-версия-руководства-экс-ис.md",
+      "date": "2026-05-14",
+      "name": "ed14238e-финальная-версия-руководства-экс-ис",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-15/4491e363-советы-по-архитектуре-кода-для-llm.md",
+      "date": "2026-05-15",
+      "name": "4491e363-советы-по-архитектуре-кода-для-llm",
+      "category": "Cline_VSCode"
+    },
+    {
+      "file": "2026-05-15/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+      "date": "2026-05-15",
+      "name": "501aab82-обсуждение-архитектуры-system-prompt-v5",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-15/8bd28a54-систематизация-логики-веб-игры.md",
+      "date": "2026-05-15",
+      "name": "8bd28a54-систематизация-логики-веб-игры",
+      "category": "Lind|Exis_Project"
+    },
+    {
+      "file": "2026-05-15/c723960f-создание-промпта-по-запросу.md",
+      "date": "2026-05-15",
+      "name": "c723960f-создание-промпта-по-запросу",
+      "category": "Lind|Exis_Project"
+    }
+  ]
+}
