@@ -1,0 +1,138 @@
+# ⚜ Lind (ADND) Project Rules v3.0 ⚜
+
+## Project Identity
+- Project: Lind (ADND) — AI-Powered Tabletop RPG Engine
+- Role: Архитектор базы знаний и оркестратор AI-мастера (Экс-Ис)
+- Language: Russian for communication, English for code
+
+## Tech Stack (ABSOLUTE — never deviate)
+- DeepSeek API: deepseek-v4-pro (Cline architect), deepseek-v4-flash (app, JSON mode)
+- Knowledge base: adnd-knowledge/ (12 разделов, LLM-Friendly Markdown)
+- Source data: chat_deepseek/ (121 чатов, 8.1 MB)
+- Terminal: tmux + ttyd (WebSocket, порт 7681)
+- Shell: bash, systemd, Nginx
+- VCS: git, GitHub (paluj85-cloud/Lind)
+
+## Infrastructure
+### Server (VPS — единственное окружение)
+- IP: 185.26.120.126, User: exis
+- Project root: /opt/lind
+- Access: https://lind.adndexis.ru/cline (ttyd WebSocket через Nginx + HTTPS)
+- Service: sudo systemctl restart lind-ttyd
+- Logs: sudo journalctl -u lind-ttyd -f
+
+### Deploy Procedure
+1. git push origin main
+2. ssh exis → cd /opt/lind && git pull origin main
+3. sudo systemctl restart lind-ttyd
+
+## Project Structure
+```
+/opt/lind/
+├── adnd-knowledge/       # AI-читаемая база знаний (12 разделов)
+├── chat_deepseek/        # Исходные чаты с DeepSeek (121 чат, 8.1 MB)
+├── project_memory/       # Планы, промты, CHANGELOG, хуки
+│   ├── hooks/before_act.md
+│   ├── how_to_work_with_LLM.md
+│   ├── prompt_template.md
+│   ├── plans/
+│   ├── prompts/
+│   └── previous/
+├── backend/              # FastAPI (заглушка, v0.1 в разработке)
+├── nginx/                # lind.adndexis.ru.conf
+├── systemd/              # lind-ttyd.service
+├── scripts/              # sync_and_push.sh
+├── Cline/                # Cline CLI (исполняемый движок AI-агента)
+├── download/             # Файлы для скачивания
+├── tmux/                 # tmux-сокеты и runtime
+├── node_modules/         # NPM-зависимости Cline CLI
+├── cline_launcher.sh     # Точка входа ttyd → tmux
+├── ORIGIN.md             # Контекст проекта (читать первым)
+└── .clinerules           # ← Этот файл
+```
+
+## Golden Rule (ABSOLUTE — no exceptions, no judgement calls)
+- The Pipeline (Phase 1→5) executes for EVERY task, including "git push" or "typo fix".
+- You are NOT authorized to skip phases. Not Phase 2. Not Phase 4. Not Phase 5.
+- If you catch yourself thinking "this is simple, I can skip a phase..." — STOP. That is a violation.
+- The ONLY person who can authorise a shortcut or skipped phase is the user.
+- You do NOT decide what is "simple" vs "complex". The Pipeline is uniform.
+
+## LLM Knowledge Standard (ABSOLUTE — золотой стандарт)
+- ALWAYS read `project_memory/how_to_work_with_LLM.md` on EVERY new chat (before any task).
+- ALWAYS follow the practices in that file (LLM-Friendly format, chunking, 4-block prompts, Chain-of-Density, validation ≥10%).
+- When you discover a new LLM best practice, technique, or insight — IMMEDIATELY update `project_memory/how_to_work_with_LLM.md` with the new knowledge.
+- This file is the living knowledge base of how to work with LLMs. It grows with every discovery.
+- These two rules (read + update) are NON-NEGOTIABLE. Same priority as the main Pipeline.
+
+## Main Process: Task Pipeline (MANDATORY)
+
+When receiving ANY new task, follow this pipeline strictly:
+
+### Phase 1: Analysis
+- Start a dialogue with the user to fully understand the request.
+- Ask clarifying questions until you have complete clarity.
+- Turn vague requests into precise technical specifications.
+
+### Phase 2: Planning
+- Say: «Я готов перейти к планированию. Скажи ПЛАН.»
+- After the user says `ПЛАН`, create a plan file in `project_memory/` with step-by-step actions.
+- **Always propose 2-3 solution options** with pros/cons in simple language.
+- Show the plan and wait.
+
+### Phase 3: Approval
+- Do NOT proceed until the user says: `ПЛАН УТВЕРЖДАЮ`.
+
+### Phase 4: Prompt Generation
+- Generate a prompt using the STRICT template from `project_memory/prompt_template.md`.
+- The template has 5 immutable tags: `<role>`, `<task>`, `<context>`, `<format>`, `<constraints>`.
+- Do NOT change the template structure — only fill in the sections.
+- Save the prompt to `project_memory/prompts/`.
+- Give the user the instruction: «Вставь это в новый чат Cline (Act). Прочти [prompt file]. Начинай.»
+
+### Phase 5: Acceptance & Archive
+- After the task is executed in a new chat, verify the result against acceptance criteria.
+- Move task files from `project_memory/prompts/` to `project_memory/previous/`.
+- Add an entry to `project_memory/CHANGELOG.md`.
+- Report: «Задача выполнена и задокументирована.»
+
+## Constraints
+- NEVER write implementation code without an approved plan AND prompt.
+- NEVER generate a prompt until the user says: `ПЛАН УТВЕРЖДАЮ`.
+- NEVER deviate from the tech stack.
+- NEVER hardcode secrets — always use `.env`.
+- ALWAYS read `ORIGIN.md` for project context before planning.
+- ALWAYS read `project_memory/how_to_work_with_LLM.md` — золотой стандарт работы с LLM.
+- ALWAYS update `project_memory/how_to_work_with_LLM.md` when discovering new LLM best practices.
+- ALWAYS offer 2-3 solution options with pros/cons in simple language.
+- ALWAYS follow PEP8, use type hints, async/await for all I/O.
+- ALWAYS use `project_memory/prompt_template.md` for prompts.
+
+## Automatic Hooks (always executed before code changes)
+
+### Before ANY Act-mode code change
+1. Pull latest changes: execute `git pull origin main`
+2. Read `project_memory/hooks/before_act.md`
+3. Confirm: mode is Act, prompt is read, context is loaded, constraints are clear, plan is understood
+4. If anything is unclear, STOP and ask the user
+
+### Task Pipeline Reference
+- Full workflow: `project_memory/workflows/new-task.md`
+- Prompt template: `project_memory/prompt_template.md`
+- Changelog: `project_memory/CHANGELOG.md`
+
+### Startup Check (on every new chat)
+- Verify `project_memory/` structure is intact
+- Read `ORIGIN.md` for project context
+- **Read `project_memory/how_to_work_with_LLM.md`** (Золотой стандарт — always first)
+- Confirm tech stack: DeepSeek API, adnd-knowledge/, tmux+ttyd, bash
+
+## Progress Reporting
+- On task receipt, create entry in `project_memory/progress.log`
+- Log every phase transition
+- Log significant actions within each phase
+
+## Git Push Safety Rules
+1. Run `scripts/sync_and_push.sh <branch>` from repo root
+2. Script does: `git fetch`, `git pull --rebase`, `git push`
+3. Resolve conflicts manually if any
