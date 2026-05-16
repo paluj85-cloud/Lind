@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## [2026-05-16] — Система параллельных треков (Вариант C+) — Архитектор/Инженер/Критик
+- **Созданы 4 workflow-файла**:
+  - `project_memory/tracks.md` — дашборд трёх треков (активный: Архитектор)
+  - `project_memory/dependency-map.md` — карта зависимостей adnd-knowledge/ ↔ backend/
+  - `project_memory/workflows/switch-track.md` — протокол переключения (5 шагов)
+  - `project_memory/workflows/verification.md` — 3-слойная верификация (авто/LLM-критик/ручная)
+- **Обновлён** `.clinerules` — секция «Parallel Tracks System» (7 TRACK RULES)
+- **Обновлён** `project_memory/STATE.md` — новый чекпоинт с активным треком
+- **Обновлён** `project_memory/progress.log` — запись о Phase 4→5
+- Plan: `project_memory/plans/2026-05-16_parallel-tracks-options.md`
+- Prompt archived: `project_memory/previous/2026-05-16_parallel-tracks-system-c-plus.md`
+- Git: commit `d48d8f0`, branch `main`
+
+## [2026-05-16] — Настройка переменных окружения (DeepSeek + GitHub)
+- Создан `/opt/lind/.env` (chmod 600) с CLINE_API_KEY, DEEPSEEK_API_KEY, GITHUB_TOKEN
+- Создан `/opt/lind/.gitignore` (секреты + runtime-файлы)
+- systemd `lind-ttyd.service`: `Environment=` → `EnvironmentFile=/opt/lind/.env`
+- `cline_launcher.sh`: добавлен source `.env` как фоллбэк для интерактивных сессий
+- systemd unit скопирован в `/etc/systemd/system/`, сервис перезапущен — все три переменные проброшены
+- Промт архивирован: `project_memory/previous/env-setup-2026-05-16.md`
+
 ## [2026-05-15] — Content Extraction Pipeline (Этапы 1-4): 350 фактов, 8 разделов adnd-knowledge/
 - **Этап 1 (Классификация)**: 121 чат → `_classification.json` (107 Lind-related, 14 non-Lind)
 - **Этап 2 (Extraction)**: `scripts/extract_facts.py` — concurrent.futures (10 workers), DeepSeek API JSON mode → 350 фактов (11 партий)
