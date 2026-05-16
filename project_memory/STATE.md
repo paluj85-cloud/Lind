@@ -1,6 +1,6 @@
 # STATE.md — Restart Checkpoint
 
-> **Последнее обновление**: 2026-05-16 09:08 UTC
+> **Последнее обновление**: 2026-05-16 09:44 UTC
 > **Автор**: Cline (автоматически)
 > **Назначение**: При перезагрузке Cline — прочти этот файл первым, чтобы понять, на чём мы остановились.
 
@@ -8,22 +8,27 @@
 
 ## Где мы остановились
 
-**Задача**: Система параллельных треков (Вариант C+) — **выполняется** (Phase 5 в процессе).
+**Задача**: Cline Restart Protocol — **выполняется** (Phase 4, добавляю секцию в .clinerules).
 
-**Последнее действие**: Созданы 4 новых файла (tracks.md, dependency-map.md, switch-track.md, verification.md). Обновлён .clinerules. STATE.md и progress.log обновляются.
+**Последнее действие**: Добавлена секция «🔄 Cline Restart Protocol» в `.clinerules`. Обновлён STATE.md и progress.log. Готов к git push.
 
-**Текущий статус**: 🔄 Активный трек — Архитектор. Завершаю Phase 5 (Archive).
+**Текущий статус**: 🔄 Активный трек — Архитектор. Завершаю изменения, заканчиваю Phase 5.
 
 ---
 
 ## Что уже сделано (последние задачи)
 
-### 0. Система параллельных треков (Вариант C+) — ВЫПОЛНЯЕТСЯ
+### 0. Cline Restart Protocol (Вариант B) — ВЫПОЛНЯЕТСЯ
+- `.clinerules` обновлён — добавлена секция «🔄 Cline Restart Protocol» (5 шагов)
+- Plan: `project_memory/plans/2026-05-16_restart-protocol.md`
+- Prompt: `project_memory/prompts/2026-05-16_restart-protocol.md`
+
+### 0.1. Система параллельных треков (Вариант C+) — ЗАВЕРШЕНО
 - 4 новых workflow-файла в `project_memory/` и `project_memory/workflows/`
 - `.clinerules` обновлён (секция Parallel Tracks System)
 - Активный трек: Архитектор
 - Plan: `project_memory/plans/2026-05-16_parallel-tracks-options.md`
-- Prompt: `project_memory/prompts/2026-05-16_parallel-tracks-system-c-plus.md`
+- Prompt archived: `project_memory/previous/2026-05-16_parallel-tracks-system-c-plus.md`
 
 ### 1. Content Extraction Pipeline (Этапы 1-4) — ЗАВЕРШЕНО
 - 121 чат из `chat_deepseek/` классифицирован → `_classification.json`
@@ -47,9 +52,9 @@
 
 **Активный трек**: Архитектор
 
-**Текущая задача**: System Prompt v5.0 — защита от социальной инженерии (см. `project_memory/tracks.md`).
+**Текущая задача**: Cline Restart Protocol → после git push — перезагрузка Cline.
 
-**Следующий логический шаг** — пользователь должен инициировать первую задачу в треке Архитектор (или переключить трек).
+**Следующий логический шаг**: После перезагрузки — System Prompt v5.0 (защита от социальной инженерии, трек Архитектор).
 
 ---
 

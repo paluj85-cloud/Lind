@@ -151,6 +151,27 @@ When receiving ANY new task, follow this pipeline strictly:
 - After significant prompt changes: trigger Слой 2 (LLM-critic analysis), save report to adnd-knowledge/*/_audit.json
 - Quality Gate: no task is "done" until verification layer appropriate to the change is passed
 
+## 🔄 Cline Restart Protocol
+
+### When to restart Cline
+- After ANY change to `.clinerules` — Cline reads it at chat start, changes take effect only after restart
+- After structural changes to `project_memory/` (new files, new directories)
+- After changes to system configs that Cline loads at startup (systemd, Nginx, tmux)
+
+### Procedure (5 steps — ALWAYS execute in order)
+1. **Save**: `git add` all changed files → `git commit` with descriptive message → `git push origin main`
+2. **Checkpoint**: Update `project_memory/STATE.md`:
+   - Set «Где мы остановились» to current task + status
+   - Set «Последнее обновление» to current UTC timestamp
+   - Set «Активный трек» if tracks are in use
+3. **Log**: Add entry to `project_memory/progress.log` with timestamp, action, and status
+4. **Announce**: Tell the user: «Готов к перезагрузке Cline. После перезагрузки я прочитаю STATE.md и продолжу.»
+5. **Restart**: User restarts Cline → Cline reads `ORIGIN.md` → reads `STATE.md` → continues from checkpoint
+
+### After restart
+- Cline's Startup Check (defined above) already includes reading `ORIGIN.md` and `STATE.md`
+- No additional steps needed — the checkpoint in `STATE.md` provides full context
+
 ## Git Push Safety Rules
 1. Run `scripts/sync_and_push.sh <branch>` from repo root
 2. Script does: `git fetch`, `git pull --rebase`, `git push`
