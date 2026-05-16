@@ -108,8 +108,9 @@ function connect() {
 
   ws.onopen = () => {
     console.log('[Lind] WebSocket connected');
-    // If we have a saved session, try to restore it immediately
-    if (sessionId && playerName) {
+    // Send player_join as soon as the player has entered their name.
+    // session_id is null for new sessions, uuid for reconnects.
+    if (playerName) {
       sendMessage({
         type: 'player_join',
         player_name: playerName,
@@ -155,8 +156,6 @@ function handleMessage(msg) {
     case 'session_created':
       sessionId = msg.session_id;
       localStorage.setItem('lind_session_id', sessionId);
-      // Now start the greeting ritual
-      sendMessage({ type: 'player_join', player_name: playerName, session_id: null });
       break;
 
     case 'master_thinking':
