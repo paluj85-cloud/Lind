@@ -1,0 +1,905 @@
+{
+  "audit_metadata": {
+    "timestamp": "2026-05-16T13:49:10Z",
+    "total_sections_audited": 11,
+    "total_files_checked": 87,
+    "findings_count": 29
+  },
+  "severity_summary": {
+    "critical": 8,
+    "high": 5,
+    "medium": 9,
+    "low": 7
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "section": "system-prompts",
+      "files_involved": [
+        "ed14238e-финальная-версия-руководства-экс-ис.md",
+        "1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+        "1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую.md",
+        "7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+        "../decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "cross_section",
+      "severity": "critical",
+      "title": "Neo4j+ChromaDB vs SQLite — конфликт выбора базы данных",
+      "description": "Файлы ed14238e и 1c11a9e6 явно описывают архитектуру с Neo4j (графовая БД) и ChromaDB (векторная память). Файлы 1e7765fc и 7c2a6e45 указывают на SQLite с FTS5 как реляционную БД, допуская векторную память как дополнение. Это прямое архитектурное противоречие, требующее единого решения.",
+      "source_quotes": [
+        {
+          "file": "system-prompts/ed14238e-финальная-версия-руководства-экс-ис.md",
+          "quote": "Архитектура: FastAPI с lifespan, CORS, REST + WebSocket, асинхронные репозитории Neo4j и ChromaDB"
+        },
+        {
+          "file": "system-prompts/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+          "quote": "бэкенд на FastAPI/WebSocket, графовую БД Neo4j, векторную ChromaDB"
+        },
+        {
+          "file": "system-prompts/1e7765fc-переработка-system-prompt-экс-ис-в-алгоритмическую.md",
+          "quote": "Гибридная память: Реляционная БД (абсолютная истина) + векторная (семантический поиск). Ядро истины — неизменяемые строки в SQLite с FTS5."
+        },
+        {
+          "file": "system-prompts/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+          "quote": "архитектура игрового сервера (FastAPI, SQLite FTS5)"
+        },
+        {
+          "file": "decisions/database-choice.md",
+          "quote": "SQLite (финальное решение)"
+        }
+      ],
+      "recommendation": "Принять решение: либо Neo4j+ChromaDB (графовая + векторная), либо SQLite + опционально ChromaDB. Зафиксировать в decisions/database-choice.md и привести все system-prompts к единому варианту.",
+      "options": [
+        {
+          "label": "Вариант A: SQLite + FTS5 (и опционально ChromaDB)",
+          "pro": "Простота, один сервис, соответствует текущему решению",
+          "con": "Нет нативных графовых запросов, ограниченная масштабируемость"
+        },
+        {
+          "label": "Вариант B: Neo4j + ChromaDB",
+          "pro": "Графовые запросы, семантический поиск",
+          "con": "Сложный деплой, два сервиса, расходится с принятым решением"
+        }
+      ]
+    },
+    {
+      "id": "F002",
+      "section": "system-prompts",
+      "files_involved": [
+        "501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+        "1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+        "ed14238e-финальная-версия-руководства-экс-ис.md"
+      ],
+      "type": "contradiction",
+      "subtype": "internal",
+      "severity": "critical",
+      "title": "Один вызов LLM vs два вызова LLM на ход",
+      "description": "Файл 501aab82 (v5 SystemPromptBuilder) описывает 'Зацикленный Миропульс' как один вызов LLM, который генерирует нарратив, dice_request, state_update и context_request в рамках одного ответа. Однако файлы 1c11a9e6 и ed14238e явно требуют два вызова LLM: первый — с dice_request, второй — с результатами броска для финального нарратива.Это фундаментальный конфликт в дизайне игрового цикла.",
+      "source_quotes": [
+        {
+          "file": "system-prompts/501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+          "quote": "каждый ход игрока запускает полноценный цикл симуляции, выполняемый в рамках одного вызова LLM"
+        },
+        {
+          "file": "system-prompts/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+          "quote": "Игровой цикл с двумя вызовами LLM: первый вызов генерирует нарратив и опциональные броски D20; второй (после получения результатов) – финальный нарратив; максимум 2 вызова на ход"
+        }
+      ],
+      "recommendation": "Выбрать один подход: либо однопроходный (сложнее для модели, но быстрее), либо двухпроходный (больше контроля над бросками). Зафиксировать в game-loop/ и привести все промпты к единому циклу.",
+      "options": [
+        {
+          "label": "Однопроходный (v5 стиль)",
+          "pro": "Меньше задержек, один вызов API",
+          "con": "Сложнее заставить LLM корректно обрабатывать карты, нестабильность"
+        },
+        {
+          "label": "Двухпроходный (руководство Cline)",
+          "pro": "Чёткое разделение, более надёжный бросок",
+          "con": "Два вызова API, дополнительная логика"
+        }
+      ]
+    },
+    {
+      "id": "F003",
+      "section": "system-prompts",
+      "files_involved": [
+        "adfe6475-создание-системного-промта-для-экс-ис.md",
+        "7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+        "501aab82-обсуждение-архитектуры-system-prompt-v5.md",
+        "ed14238e-финальная-версия-руководства-экс-ис.md"
+      ],
+      "type": "outdated",
+      "subtype": "version_conflict",
+      "severity": "medium",
+      "title": "Устаревшие версии системных промптов (v2.0 и v3.0)",
+      "description": "Файл adfe6475 представляет версию v2.0, 7c2a6e45 — v3.0. Однако существуют более новые разработки: v5.0 в 501aab82 и финальное руководство в ed14238e. Старые версии не помечены как устаревшие, что может вводить в заблуждение.",
+      "source_quotes": [
+        {
+          "file": "system-prompts/adfe6475-создание-системного-промта-для-экс-ис.md",
+          "quote": "Создание детального многослойного системного промпта (v2.0)"
+        },
+        {
+          "file": "system-prompts/7c2a6e45-создание-логического-промта-для-ии-мастера.md",
+          "quote": "Разработан новый системный промпт v3.0"
+        }
+      ],
+      "recommendation": "Пометить adfe6475 и 7c2a6e45 как outdated/архив, добавить ссылки на актуальные версии (v5.0 или финальное руководство)."
+    },
+    {
+      "id": "F004",
+      "section": "system-prompts",
+      "files_involved": [
+        "README.md",
+        "anima-assistant.md",
+        "exis-master.md",
+        "greeting.md",
+        "world-creation.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "empty_file",
+      "severity": "medium",
+      "title": "Пять файлов-заглушек TBD",
+      "description": "Файлы README.md, anima-assistant.md, exis-master.md, greeting.md, world-creation.md имеют статус TBD и не содержат фактического содержимого. Это препятствует использованию базы знаний.",
+      "source_quotes": [
+        {
+          "file": "system-prompts/README.md",
+          "quote": "Статус: ⏳ TBD — будет наполнено из чатов DeepSeek"
+        }
+      ],
+      "recommendation": "Заполнить файлы содержимым на основе чатов DeepSeek. Если контент уже существует в других местах, создать ссылки."
+    },
+    {
+      "id": "F005",
+      "section": "system-prompts",
+      "files_involved": [
+        "1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+        "ed14238e-финальная-версия-руководства-экс-ис.md"
+      ],
+      "type": "duplicate",
+      "subtype": "overlap",
+      "severity": "low",
+      "title": "Дублирование ТЗ: пошаговое руководство и финальная версия",
+      "description": "Файлы 1c11a9e6 и ed14238e содержат очень похожее техническое задание: FastAPI, Neo4j, ChromaDB, два прохода LLM, XML/JSON парсинг. Оба описывают одну и ту же архитектуру MVP. Возможно, их следует объединить или один удалить.",
+      "source_quotes": [
+        {
+          "file": "system-prompts/1c11a9e6-пошаговое-руководство-для-ai-агента-cline.md",
+          "quote": "бэкенд на FastAPI/WebSocket, графовую БД Neo4j, векторную ChromaDB"
+        },
+        {
+          "file": "system-prompts/ed14238e-финальная-версия-руководства-экс-ис.md",
+          "quote": "Архитектура: FastAPI с lifespan, CORS, REST + WebSocket, асинхронные репозитории Neo4j и ChromaDB"
+        }
+      ],
+      "recommendation": "Объединить в один файл, оставив более полную версию (предположительно ed14238e) и добавив ссылку из другого."
+    },
+    {
+      "id": "F001",
+      "section": "tech-specs",
+      "files_involved": [
+        "81fa1819-финальное-руководство-по-разработке-mvp.md",
+        "435caf1e-техническое-задание-экзис-архитектор-миров.md",
+        "cf2879fe-составление-тз-для-игры-с-ии-мастером.md"
+      ],
+      "type": "contradiction",
+      "subtype": "within_section",
+      "severity": "critical",
+      "title": "Выбор базы данных: Neo4j+ChromaDB vs SQLite vs MySQL",
+      "description": "В разделе tech-specs три разных файла предлагают разные стеки баз данных: файл 81fa1819 (финальное руководство MVP) использует Neo4j + ChromaDB; файл 435caf1e (ТЗ Экзис Архитектор Миров) использует ChromaDB + SQLite; файл cf2879fe (Составление ТЗ для игры с ИИ мастером) использует MySQL. Это внутреннее противоречие, усугубляемое тем, что в разделе decisions/ (database-choice.md) выбран SQLite как единственная БД.",
+      "source_quotes": [
+        {
+          "file": "81fa1819-финальное-руководство-по-разработке-mvp.md",
+          "quote": "Архитектура MVP включает FastAPI, WebSocket, Neo4j (графовая БД), ChromaDB (векторная память)"
+        },
+        {
+          "file": "435caf1e-техническое-задание-экзис-архитектор-миров.md",
+          "quote": "Память: двухконтурная система: векторная (ChromaDB) для семантического поиска + реляционная (SQLite) для хроник"
+        },
+        {
+          "file": "cf2879fe-составление-тз-для-игры-с-ии-мастером.md",
+          "quote": "Архитектура MVP: Python + FastAPI, WebSockets для чата, MySQL"
+        },
+        {
+          "file": "../decisions/database-choice.md",
+          "quote": "выбор SQLite как единственной БД"
+        }
+      ],
+      "recommendation": "Необходимо унифицировать выбор БД во всех документах tech-specs и привести в соответствие с decisions/database-choice.md (SQLite). Файлы, содержащие альтернативные стеки, пометить как устаревшие или переработать, если решение пересмотрено.",
+      "options": [
+        {
+          "label": "Принять SQLite как единственную БД (согласованно с decisions)",
+          "pro": "Единообразие, простота, минимум сервисов",
+          "con": "Отсутствие графовых и векторных возможностей, может потребоваться замена позже"
+        },
+        {
+          "label": "Пересмотреть решение в пользу Neo4j+ChromaDB",
+          "pro": "Графовые запросы, семантический поиск",
+          "con": "Сложность, два сервиса, несоответствие текущему решению"
+        }
+      ]
+    },
+    {
+      "id": "F002",
+      "section": "tech-specs",
+      "files_involved": [
+        "a34f410b-поиск-пропусков-в-тз.md",
+        "b4ef2128-пропуски-текста-в-руководстве-тз.md"
+      ],
+      "type": "duplicate",
+      "subtype": "within_section",
+      "severity": "medium",
+      "title": "Дублирование – два файла о пропущенных фрагментах ТЗ",
+      "description": "Файлы a34f410b и b4ef2128 оба описывают отсутствие полных текстов/кода в ТЗ MVP (промпты, Docker, тесты). Содержание почти идентично: оба указывают на пропуск anima_assistant.txt, Dockerfile, docker-compose.yml, интеграционных тестов. Отличаются лишь формулировками и детализацией. Один из них можно объединить или удалить.",
+      "source_quotes": [
+        {
+          "file": "a34f410b-поиск-пропусков-в-тз.md",
+          "quote": "Пропуск 2: Этап 6 — отсутствует полный текст файла game/prompts/anima_assistant.txt"
+        },
+        {
+          "file": "b4ef2128-пропуски-текста-в-руководстве-тз.md",
+          "quote": "В этапе 6 (Промпты) отсутствует текст файла game/prompts/anima_assistant.txt"
+        }
+      ],
+      "recommendation": "Объединить информацию в один файл (например, оставить a34f410b как более полный, дополнив деталями из b4ef2128) и удалить дублирующийся файл. Второй файл можно пометить как obsolete."
+    },
+    {
+      "id": "F003",
+      "section": "tech-specs",
+      "files_involved": [
+        "v0.1-mvp.md",
+        "v0.2-multiplayer.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "within_section",
+      "severity": "high",
+      "title": "TBD-заглушки для ТЗ версий v0.1 и v0.2",
+      "description": "Файлы v0.1-mvp.md и v0.2-multiplayer.md содержат только маркер TBD и обещание наполнить из чатов DeepSeek. Поскольку это ключевые документы, определяющие содержание версий, их пустота создаёт пробел в базе знаний. Требуется заполнить техническими заданиями.",
+      "source_quotes": [
+        {
+          "file": "v0.1-mvp.md",
+          "quote": "Статус: ⏳ TBD — будет наполнено из чатов DeepSeek"
+        },
+        {
+          "file": "v0.2-multiplayer.md",
+          "quote": "Статус: ⏳ TBD — будет наполнено из чатов DeepSeek"
+        }
+      ],
+      "recommendation": "Извлечь содержимое из переписки DeepSeek (чаты) и заполнить эти файлы. В качестве временной меры можно указать ссылки на соответствующие файлы в tech-specs, которые уже описывают функциональность (например, cf2879fe для v0.1 и a55c0d1a для v0.2)."
+    },
+    {
+      "id": "F004",
+      "section": "tech-specs",
+      "files_involved": [
+        "81fa1819-финальное-руководство-по-разработке-mvp.md",
+        "af59e1fd-проверка-тз-на-ошибки-и-неполноту.md"
+      ],
+      "type": "contradiction",
+      "subtype": "within_section",
+      "severity": "high",
+      "title": "Конфликтующие архитектуры для MVP: мультиплеер vs одиночная игра",
+      "description": "Файл 81fa1819 (финальное руководство MVP) предполагает мультиплеерную архитектуру с голосованием, двумя проходами LLM, киком игроков и т.д., в то время как файл af59e1fd (проверка ТЗ на ошибки и неполноту) описывает модуль для работы с книгами, что относится к другому подпроекту (не к основному MVP). Это не прямое противоречие, но размывает границы и может ввести в заблуждение: часть материалов tech-specs относится к основному проекту, часть – к дополнительным модулям. Рекомендуется разделить разделы.",
+      "source_quotes": [
+        {
+          "file": "81fa1819-финальное-руководство-по-разработке-mvp.md",
+          "quote": "Архитектура MVP включает ... мультиплеер, голосование, два прохода LLM"
+        },
+        {
+          "file": "af59e1fd-проверка-тз-на-ошибки-и-неполноту.md",
+          "quote": "Техническое задание на модуль загрузки художественных книг, их автоматического анализа ИИ и формирования нарративных атомов"
+        }
+      ],
+      "recommendation": "Переместить файлы, не относящиеся к основному проекту (af59e1fd, e3c4f4f2, возможно другие) в отдельный подраздел или пометить как 'внешние модули'. Основной раздел tech-specs должен быть сфокусирован на MVP игры."
+    },
+    {
+      "id": "F005",
+      "section": "tech-specs",
+      "files_involved": [
+        "81fa1819-финальное-руководство-по-разработке-mvp.md"
+      ],
+      "type": "inconsistency",
+      "subtype": "cross_section",
+      "severity": "critical",
+      "title": "Файл 81fa1819 использует Neo4j, противореча decisions/database-choice.md (SQLite)",
+      "description": "Файл 81fa1819 (финальное руководство MVP) явно описывает использование Neo4j как графовой БД и ChromaDB для векторной памяти, тогда как в разделе decisions/database-choice.md зафиксирован выбор SQLite в качестве единственной базы данных. Это критическое межраздельное противоречие, так как архитектура БД является основополагающей.",
+      "source_quotes": [
+        {
+          "file": "81fa1819-финальное-руководство-по-разработке-mvp.md",
+          "quote": "Архитектура MVP включает FastAPI, WebSocket, Neo4j (графовая БД), ChromaDB (векторная память)"
+        },
+        {
+          "file": "../decisions/database-choice.md",
+          "quote": "выбор SQLite как единственной БД"
+        }
+      ],
+      "recommendation": "Файл 81fa1819 должен быть переработан: либо приведён в соответствие с решением SQLite, если решение действительно финальное, либо, если решение пересмотрено, обновить decisions/database-choice.md. В текущем виде файл дезориентирует разработчика.",
+      "options": [
+        {
+          "label": "Адаптировать 81fa1819 под SQLite",
+          "pro": "Согласованность с решениями",
+          "con": "Потеря графовых возможностей"
+        },
+        {
+          "label": "Пересмотреть решение в пользу Neo4j+ChromaDB",
+          "pro": "Более мощная архитектура",
+          "con": "Усложнение, переписывание decisions"
+        }
+      ]
+    },
+    {
+      "id": "F006",
+      "section": "tech-specs",
+      "files_involved": [
+        "a6a01044-что-нужно-программисту-помимо-тз.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "within_section",
+      "severity": "low",
+      "title": "Файл 'Что нужно программисту помимо ТЗ' является общеметодологическим, а не технической спецификацией",
+      "description": "Файл a6a01044 содержит общие рекомендации по процессу разработки, не относящиеся напрямую к ТЗ проекта. Это не ошибка, но он не соответствует назначению раздела tech-specs. Рекомендуется переместить его в отдельный раздел (например, process-guides) или в README.",
+      "source_quotes": [
+        {
+          "file": "a6a01044-что-нужно-программисту-помимо-тз.md",
+          "quote": "Даже при наличии ТЗ ... для написания программы программисту требуются: рабочая инфраструктура и доступы, реальные данные, контекст команды"
+        }
+      ],
+      "recommendation": "Перенести файл в соответствующий раздел (например, process) или удалить, так как он не является технической спецификацией."
+    },
+    {
+      "id": "F007",
+      "section": "tech-specs",
+      "files_involved": [
+        "480e1f3e-анализ-тз-и-уточняющие-вопросы.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "within_section",
+      "severity": "medium",
+      "title": "Незавершённый анализ ТЗ – файл без финального документа",
+      "description": "Файл 480e1f3e содержит только начальные размышления AI-аналитика, но не содержит финальных уточняющих вопросов или переработанного ТЗ. Это незавершённая работа. Необходимо либо завершить и оформить результат, либо удалить файл, чтобы не вводить в заблуждение.",
+      "source_quotes": [
+        {
+          "file": "480e1f3e-анализ-тз-и-уточняющие-вопросы.md",
+          "quote": "Размышления AI обрываются на полуслове – этап формулировки уточняющих вопросов не завершён"
+        }
+      ],
+      "recommendation": "Завершить анализ, сформулировать уточняющие вопросы и зафиксировать их в отдельном документе, либо удалить данный файл."
+    },
+    {
+      "id": "F-DEC-001",
+      "section": "decisions",
+      "files_involved": [
+        "decisions/README.md",
+        "decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "intra_section",
+      "severity": "critical",
+      "title": "Neo4j+ChromaDB vs SQLite — фундаментальное противоречие в выборе БД",
+      "description": "README.md описывает инициализацию мира с использованием Neo4j (графовая БД) и ChromaDB (векторная БД), а также отдельно упоминает SQLite+FTS5 как основную БД. database-choice.md чётко фиксирует SQLite как единственную СУБД для MVP с возможной миграцией на PostgreSQL. Это создаёт неопределённость: либо вся архитектура использует SQLite, либо часть данных хранится в графовой/векторной БД.",
+      "source_quotes": [
+        {
+          "file": "decisions/README.md",
+          "quote": "Скрипт scripts/init_world.py, который создаёт локации, NPC, предметы, квесты и факты в Neo4j и ChromaDB."
+        },
+        {
+          "file": "decisions/README.md",
+          "quote": "На начальном этапе принято решение использовать SQLite + FTS5 как встроенную базу данных без внешних СУБД."
+        },
+        {
+          "file": "decisions/database-choice.md",
+          "quote": "Решение: SQLite для прототипа/MVP с возможностью миграции на PostgreSQL при росте нагрузки."
+        }
+      ],
+      "recommendation": "Необходимо унифицировать архитектуру данных: либо полностью перейти на SQLite (с возможным расширением для векторного поиска через sqlite-vss), либо принять многокомпонентное решение (Neo4j для графа, ChromaDB для векторов, SQLite для реляционных данных). Зафиксировать это в едином документе решений.",
+      "options": [
+        {
+          "label": "Вариант A: SQLite + sqlite-vss",
+          "pro": "Простота, единая БД, нулевая конфигурация",
+          "con": "Ограниченные возможности графовых запросов, экспериментальный векторный функционал"
+        },
+        {
+          "label": "Вариант B: Neo4j + ChromaDB + SQLite",
+          "pro": "Полноценный граф, семантический поиск, разделение ответственности",
+          "con": "Сложность деплоя, три разных хранилища, увеличение точек отказа"
+        }
+      ]
+    },
+    {
+      "id": "F-DEC-002",
+      "section": "decisions",
+      "files_involved": [
+        "decisions/bf276322-выбор-css-фреймворка-в-2026.md",
+        "decisions/css-framework-choice.md"
+      ],
+      "type": "duplicate",
+      "subtype": "redundancy",
+      "severity": "medium",
+      "title": "Дублирование информации о выборе CSS-фреймворка",
+      "description": "Два файла (bf276322 и css-framework-choice.md) содержат практически одинаковый контент: сравнение Bootstrap, Tailwind, shadcn/ui и альтернатив. bf276322 — более подробный, с датами и статистикой; css-framework-choice.md — краткий конспект. Это избыточно и может привести к рассинхронизации при обновлениях.",
+      "source_quotes": [
+        {
+          "file": "decisions/bf276322-выбор-css-фреймворка-в-2026.md",
+          "quote": "Tailwind CSS (утилитарный подход) обеспечивает максимальную гибкость, маленький бандл (6–30 КБ) и нативную интеграцию с React/Vue"
+        },
+        {
+          "file": "decisions/css-framework-choice.md",
+          "quote": "Tailwind CSS (утилитарный) стал стандартом для новых проектов, Bootstrap (компонентный) остаётся лидером по числу сайтов"
+        }
+      ],
+      "recommendation": "Объединить файлы, оставив полную версию (bf276322) как основной источник, а css-framework-choice.md удалить или сделать перенаправлением."
+    },
+    {
+      "id": "F-DEC-003",
+      "section": "decisions",
+      "files_involved": [
+        "decisions/README.md",
+        "decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "inconsistency",
+      "severity": "high",
+      "title": "Внутренняя противоречивость README.md по поводу БД",
+      "description": "В README.md в разделе «База данных и векторный поиск» говорится об использовании SQLite+FTS5, а в разделе «Инициализация мира» — о записи в Neo4j и ChromaDB. Это внутреннее противоречие одного документа, которое вводит в заблуждение.",
+      "source_quotes": [
+        {
+          "file": "decisions/README.md",
+          "quote": "На начальном этапе принято решение использовать SQLite + FTS5 как встроенную базу данных без внешних СУБД."
+        },
+        {
+          "file": "decisions/README.md",
+          "quote": "Скрипт scripts/init_world.py, который создаёт локации, NPC, предметы, квесты и факты в Neo4j и ChromaDB."
+        }
+      ],
+      "recommendation": "Привести README.md к единому описанию архитектуры хранения данных после принятия решения по F-DEC-001."
+    },
+    {
+      "id": "F-GD-001",
+      "section": "game-design",
+      "files_involved": [
+        "game-design/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+        "../decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "cross_section",
+      "severity": "high",
+      "title": "Векторная БД vs SQLite — конфликт хранилища памяти",
+      "description": "Файл 0622aeda описывает двухконтурную систему памяти с использованием векторной базы данных (ChromaDB/FAISS) для семантического поиска событий и NPC, в то время как decisions/database-choice.md фиксирует выбор SQLite как единственной базы данных. Это противоречие требует разрешения: либо векторная БД является дополнительным компонентом, либо архитектура памяти должна быть пересмотрена для работы только с SQLite.",
+      "source_quotes": [
+        {
+          "file": "game-design/0622aeda-концепция-памяти-и-наследия-мира-экзис.md",
+          "quote": "первый контур (LLM-память) использует векторную базу данных (ChromaDB/FAISS) для семантического поиска событий, NPC и предметов"
+        },
+        {
+          "file": "../decisions/database-choice.md",
+          "quote": "SQLite as single database"
+        }
+      ],
+      "recommendation": "Принять решение: либо оставить векторную БД как дополнение к SQLite (уточнив интеграцию), либо переработать систему памяти для использования только SQLite (с FTS5 или эмбеддингами в BLOB). Зафиксировать итог в обоих файлах.",
+      "options": [
+        {
+          "label": "Вариант A: SQLite + FTS5 (без векторной БД)",
+          "pro": "Простота, один сервис, меньше зависимостей",
+          "con": "Потеря семантического поиска, возможна деградация качества ритрива"
+        },
+        {
+          "label": "Вариант B: SQLite + отдельная векторная БД (ChromaDB/FAISS)",
+          "pro": "Полноценный семантический поиск, гибкость",
+          "con": "Два сервиса, сложнее деплой и синхронизация"
+        }
+      ]
+    },
+    {
+      "id": "F-GD-002",
+      "section": "game-design",
+      "files_involved": [
+        "game-design/25fc88ce-смысл-подготовки-арок-приключений-для-ии.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "incomplete",
+      "severity": "low",
+      "title": "Файл 25fc88ce не содержит содержательной информации",
+      "description": "Файл представляет собой фрагмент диалога (предложение выбрать действие) без описания игровой механики или ключевых тезисов. Он не добавляет ценности и может быть удалён или доработан.",
+      "source_quotes": [
+        {
+          "file": "game-design/25fc88ce-смысл-подготовки-арок-приключений-для-ии.md",
+          "quote": "ТЗ готово. В нём: ... Можете: Одобрить, Скорректировать, Перейти к следующему модулю."
+        }
+      ],
+      "recommendation": "Либо заполнить файл описанием модуля арок приключений, либо удалить его как мусорный."
+    },
+    {
+      "id": "F-GD-003",
+      "section": "game-design",
+      "files_involved": [
+        "game-design/README.md"
+      ],
+      "type": "format",
+      "subtype": "incomplete",
+      "severity": "low",
+      "title": "README.md обрывается на полуслове",
+      "description": "Текст файла заканчивается на фразе '...возникновение и падение государс' без завершения. Возможно, файл повреждён или не дописан. Это нарушает LLM-Friendly формат (неполная информация).",
+      "source_quotes": [
+        {
+          "file": "game-design/README.md",
+          "quote": "...возникновение и падение государс"
+        }
+      ],
+      "recommendation": "Дополнить README.md полным содержанием или заменить на актуальную версию."
+    },
+    {
+      "id": "F001",
+      "section": "architecture",
+      "files_involved": [
+        "architecture/README.md",
+        "architecture/456b50dd-eternal-archive-memory-subsystem-technical-specifi.md",
+        "architecture/4fc125be-анализ-и-переработка-тз-вечный-архив.md"
+      ],
+      "type": "contradiction",
+      "subtype": "internal",
+      "severity": "critical",
+      "title": "Технологический стек: Neo4j/ChromaDB vs SQLite+sqlite-vss",
+      "description": "README.md (раздел архитекуры) утверждает использование Neo4j (графовая БД) и ChromaDB (векторное хранилище) наряду с SQLite. Однако файлы 456b50dd и 4fc125be (технические спецификации Вечного Архива) описывают стек MVP как SQLite + sqlite-vss для векторов, без Neo4j и ChromaDB, допуская миграцию на PostgreSQL+pgvector. Возникает неопределённость: что является актуальным стеком?",
+      "source_quotes": [
+        {
+          "file": "architecture/README.md",
+          "quote": "Графовая база данных: Neo4j.\nВекторное хранилище: ChromaDB."
+        },
+        {
+          "file": "architecture/456b50dd-eternal-archive-memory-subsystem-technical-specifi.md",
+          "quote": "Стек MVP: Python 3.11, FastAPI, SQLite + sqlite-vss (векторы)"
+        },
+        {
+          "file": "architecture/4fc125be-анализ-и-переработка-тз-вечный-архив.md",
+          "quote": "fallback на chromadb при неработоспособности sqlite-vec"
+        }
+      ],
+      "recommendation": "Согласовать единый стек в README.md, удалив упоминания Neo4j и ChromaDB, если они не используются, или добавить их как опциональные компоненты. Зафиксировать решение в decisions/database-choice.md.",
+      "options": [
+        {
+          "label": "Вариант A: SQLite + sqlite-vss (MVP), возможный переход на PostgreSQL",
+          "pro": "Простота, единая БД, подтверждено в спеках Вечного Архива",
+          "con": "Нет нативных графовых запросов, требуется эмуляция"
+        },
+        {
+          "label": "Вариант B: Neo4j + ChromaDB как отдельные сервисы",
+          "pro": "Мощные графовые связи, семантический поиск",
+          "con": "Сложность деплоя, три сервиса, противоречит решениям из Вечного Архива"
+        }
+      ]
+    },
+    {
+      "id": "F002",
+      "section": "architecture",
+      "files_involved": [
+        "architecture/README.md",
+        "../decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "cross_section",
+      "severity": "critical",
+      "title": "Выбор базы данных: Neo4j+ChromaDB vs SQLite",
+      "description": "README.md в разделе архитектуры заявляет использование Neo4j и ChromaDB, тогда как decisions/database-choice.md (известно из контекста) фиксирует выбор SQLite как единственной БД. Это прямое межраздельное противоречие, требующее разрешения.",
+      "source_quotes": [
+        {
+          "file": "architecture/README.md",
+          "quote": "Графовая база данных: Neo4j.\nВекторное хранилище: ChromaDB."
+        },
+        {
+          "file": "../decisions/database-choice.md",
+          "quote": "(ожидается цитата о выборе SQLite)"
+        }
+      ],
+      "recommendation": "Привести README.md в соответствие с утверждённым решением (SQLite) или обновить решение, если Neo4j/ChromaDB действительно нужны. Устранить разночтение.",
+      "options": [
+        {
+          "label": "Принять SQLite как единственную БД",
+          "pro": "Согласованность с decisions/database-choice.md, простота",
+          "con": "Потеря графовых и векторных возможностей (если они критичны)"
+        },
+        {
+          "label": "Пересмотреть решение в пользу Neo4j+ChromaDB",
+          "pro": "Более мощная архитектура",
+          "con": "Усложнение, противоречие с ранее принятыми решениями"
+        }
+      ]
+    },
+    {
+      "id": "F003",
+      "section": "architecture",
+      "files_involved": [
+        "architecture/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+        "architecture/456b50dd-eternal-archive-memory-subsystem-technical-specifi.md",
+        "architecture/4fc125be-анализ-и-переработка-тз-вечный-архив.md"
+      ],
+      "type": "contradiction",
+      "subtype": "outdated_vs_current",
+      "severity": "high",
+      "title": "Рекомендация аудита vs фактический стек Вечного Архива",
+      "description": "Файл 55913f2c (аудит архитектуры) рекомендует заменить самодельную память на связку ChromaDB + Neo4j. Однако спецификации Вечного Архива (456b50dd, 4fc125be) реализуют память на SQLite + sqlite-vss, с возможным fallback на chromadb, но без Neo4j. Рекомендация аудита устарела или не была принята.",
+      "source_quotes": [
+        {
+          "file": "architecture/55913f2c-ai-dm-architecture-audit-and-recommendations.md",
+          "quote": "Самодельный «Вечный Архив» с ручным RAG (context_request) — легко заменяется связкой ChromaDB + Neo4j."
+        },
+        {
+          "file": "architecture/456b50dd-eternal-archive-memory-subsystem-technical-specifi.md",
+          "quote": "Стек MVP: Python 3.11, FastAPI, SQLite + sqlite-vss (векторы)"
+        }
+      ],
+      "recommendation": "Обновить или аннотировать файл 55913f2c, указав, что рекомендация не была принята, и текущий стек отличается. Либо пересмотреть спецификации Вечного Архива, если рекомендация всё же актуальна."
+    },
+    {
+      "id": "F001",
+      "section": "api-spec",
+      "files_involved": [
+        "api-spec/deepseek-api-basics.md",
+        "api-spec/bb27f97f-бесплатные-запросы-deepseek-api.md"
+      ],
+      "type": "duplicate",
+      "subtype": "redundant",
+      "severity": "medium",
+      "title": "Дублирование информации об основах DeepSeek API",
+      "description": "Файл deepseek-api-basics.md является консолидированной версией файла bb27f97f-бесплатные-запросы-deepseek-api.md. Большая часть информации дублируется: приветственный бонус, тарификация, проверка баланса, подсчёт токенов. Оба файла содержат почти идентичную таблицу цен и описания эндпоинтов.",
+      "source_quotes": [
+        {
+          "file": "api-spec/deepseek-api-basics.md",
+          "quote": "Приветственный бонус: 5 000 000 бесплатных токенов... Тарификация (цены за 1M токенов): DeepSeek V4 | $0.30 | $0.50..."
+        },
+        {
+          "file": "api-spec/bb27f97f-бесплатные-запросы-deepseek-api.md",
+          "quote": "Бесплатный старт: новые пользователи DeepSeek API получают 5 миллионов бесплатных токенов... стоимость зависит от модели (например, DeepSeek V4 — $0.30/$0.50 за 1 млн токенов ввод/вывод)"
+        }
+      ],
+      "recommendation": "Объединить файлы, оставив deepseek-api-basics.md как основной, удалить bb27f97f или сделать его ссылкой на основной."
+    },
+    {
+      "id": "F002",
+      "section": "api-spec",
+      "files_involved": [
+        "api-spec/deepseek-chat-vs-api.md",
+        "api-spec/e3741e54-сравнение-чата-и-api-deepseek.md"
+      ],
+      "type": "duplicate",
+      "subtype": "redundant",
+      "severity": "medium",
+      "title": "Дублирование сравнения чата и API DeepSeek",
+      "description": "Файл deepseek-chat-vs-api.md является консолидированной версией файла e3741e54-сравнение-чата-и-api-deepseek.md. Оба описывают различия между DeepSeek Chat и API, выбор FastAPI, альтернативы Node.js, прототип чата и деплой на HostLand. deepseek-chat-vs-api.md содержит те же ключевые факты в сжатом виде.",
+      "source_quotes": [
+        {
+          "file": "api-spec/deepseek-chat-vs-api.md",
+          "quote": "Чат DeepSeek (бесплатно): Контекст 1M токенов... API DeepSeek (платно, дёшево): Позволяет встроить ИИ в свои программы..."
+        },
+        {
+          "file": "api-spec/e3741e54-сравнение-чата-и-api-deepseek.md",
+          "quote": "DeepSeek Chat (бесплатный веб/мобильный интерфейс) — нулевая стоимость... DeepSeek API (платный для разработчиков) — гибкость, автоматизация..."
+        }
+      ],
+      "recommendation": "Объединить файлы, оставив deepseek-chat-vs-api.md как основной, удалить e3741e54 или сделать его ссылкой на основной."
+    },
+    {
+      "id": "F003",
+      "section": "api-spec",
+      "files_involved": [
+        "api-spec/README.md"
+      ],
+      "type": "format",
+      "subtype": "missing_metadata",
+      "severity": "low",
+      "title": "Отсутствие даты и источника в README.md",
+      "description": "Файл README.md не содержит метаданных (дата, источник, источник информации), что затрудняет определение актуальности и происхождения данных. Остальные файлы раздела имеют структурированные заголовки с датой извлечения и источником.",
+      "source_quotes": [
+        {
+          "file": "api-spec/README.md",
+          "quote": "# API-спецификации\n\nВ данном разделе описаны все API-эндпоинты... (нет даты)"
+        }
+      ],
+      "recommendation": "Добавить метаданные: дату последнего обновления, источник (например, 'Извлечено из чатов по состоянию на 2026-05-16') и возможно ссылку на основной файл с деталями."
+    },
+    {
+      "id": "F004",
+      "section": "api-spec",
+      "files_involved": [
+        "api-spec/deepseek-chat-vs-api.md"
+      ],
+      "type": "inconsistency",
+      "subtype": "missing_reference",
+      "severity": "low",
+      "title": "Ссылки на несуществующие файлы в разделе api-spec",
+      "description": "В разделе 'Связи' файла deepseek-chat-vs-api.md указаны ссылки adnd-knowledge/api-spec/deepseek-model-selection.md и adnd-knowledge/api-spec/chat-prototype-code.md. Эти файлы отсутствуют в предоставленном списке файлов раздела api-spec (возможно, они существуют, но не включены в аудит).",
+      "source_quotes": [
+        {
+          "file": "api-spec/deepseek-chat-vs-api.md",
+          "quote": "Связи: ... Реализация: adnd-knowledge/api-spec/chat-prototype-code.md"
+        }
+      ],
+      "recommendation": "Проверить наличие упомянутых файлов в разделе api-spec. Если они отсутствуют, удалить ссылки или добавить файлы."
+    },
+    {
+      "id": "GL001",
+      "section": "game-loop",
+      "files_involved": [
+        "game-loop/README.md",
+        "decisions/database-choice.md"
+      ],
+      "type": "contradiction",
+      "subtype": "cross_section",
+      "severity": "critical",
+      "title": "Neo4j в описании игрового цикла vs SQLite в decisions",
+      "description": "README.md game-loop описывает извлечение активных игроков из Neo4j, тогда как decisions/database-choice.md фиксирует SQLite как выбранную базу данных. Это прямое противоречие в архитектуре хранения данных.",
+      "source_quotes": [
+        {
+          "file": "game-loop/README.md",
+          "quote": "При старте или после завершения хода сервер извлекает из Neo4j всех активных игроков, перемешивает их случайным образом и рассылает порядок хода."
+        },
+        {
+          "file": "decisions/database-choice.md",
+          "quote": "Выбор SQLite как единственной базы данных (из контекста задания)"
+        }
+      ],
+      "recommendation": "Согласовать выбор БД: либо обновить README на SQLite, либо пересмотреть решение в пользу Neo4j+ChromaDB и зафиксировать в decisions.",
+      "options": [
+        {
+          "label": "Вариант A: SQLite (MVP)",
+          "pro": "Простота, один сервис, соответствует текущему решению",
+          "con": "Нет графовых запросов, извлечение игроков может быть менее эффективным"
+        },
+        {
+          "label": "Вариант B: Neo4j + ChromaDB",
+          "pro": "Графовые запросы, семантический поиск, гибкость",
+          "con": "Сложный деплой, два сервиса, противоречит текущему решению"
+        }
+      ]
+    },
+    {
+      "id": "F001",
+      "section": "frontend",
+      "files_involved": [
+        "README.md"
+      ],
+      "type": "contradiction",
+      "subtype": "internal",
+      "severity": "medium",
+      "title": "Противоречие в описании расположения статических файлов",
+      "description": "В файле README.md указаны два разных пути для расположения статических файлов фронтенда: 'расположенная в папке client' и 'расположенные в backend/app/static/'. Это создаёт путаницу.",
+      "source_quotes": [
+        {
+          "file": "frontend/README.md",
+          "quote": "Клиентская часть — статика для браузера, расположенная в папке client."
+        },
+        {
+          "file": "frontend/README.md",
+          "quote": "Фронтенд представлен статическими файлами: index.html, style.css, chat.js, расположенными в backend/app/static/."
+        }
+      ],
+      "recommendation": "Унифицировать описание: выбрать один путь (скорее всего backend/app/static/) и указать его везде.",
+      "options": [
+        {
+          "label": "Вариант A: backend/app/static/",
+          "pro": "Соответствует текущей архитектуре FastAPI",
+          "con": "Нет"
+        },
+        {
+          "label": "Вариант B: папка client в корне проекта",
+          "pro": "Возможно для отдельного деплоя",
+          "con": "Необходимо обновить все ссылки"
+        }
+      ]
+    },
+    {
+      "id": "V001",
+      "section": "vision",
+      "files_involved": [
+        "vision/README.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": "incomplete",
+      "severity": "medium",
+      "title": "README.md неполный и отсутствуют метаданные",
+      "description": "Файл vision/README.md обрывается на середине фразы 'Магия первого контакта: ритуал входа с'. Также отсутствуют метаданные (дата, источник), что затрудняет определение актуальности и происхождения. Рекомендуется дополнить файл до полной версии и добавить стандартные метаданные.",
+      "source_quotes": [
+        {
+          "file": "vision/README.md",
+          "quote": "Магия первого контакта: ритуал входа с"
+        }
+      ],
+      "recommendation": "Найти полную версию README.md или восстановить усечённый контент, добавить метаданные: дата извлечения, источник, раздел."
+    },
+    {
+      "id": "F001",
+      "section": "source-map",
+      "files_involved": [
+        "README.md"
+      ],
+      "type": "tbd_gap",
+      "subtype": null,
+      "severity": "low",
+      "title": "Source map is TBD placeholder",
+      "description": "The file source-map/README.md is marked as TBD and contains no actual mapping of source chats. This section is intended to map 115 chat files to knowledge sections, but currently empty.",
+      "source_quotes": [
+        {
+          "file": "source-map/README.md",
+          "quote": "# Source Map — Карта исходных чатов\n\n> **Статус**: ⏳ TBD — будет наполнено из чатов DeepSeek"
+        }
+      ],
+      "recommendation": "Fill this section by parsing chat files and creating a mapping. Alternatively, if this section is deemed unnecessary, remove it."
+    }
+  ],
+  "section_results": [
+    {
+      "section": "system-prompts",
+      "status": "ok",
+      "files_count": 15,
+      "findings_count": 5,
+      "elapsed": 43.5
+    },
+    {
+      "section": "tech-specs",
+      "status": "ok",
+      "files_count": 16,
+      "findings_count": 7,
+      "elapsed": 37.2
+    },
+    {
+      "section": "decisions",
+      "status": "ok",
+      "files_count": 8,
+      "findings_count": 3,
+      "elapsed": 35.8
+    },
+    {
+      "section": "game-design",
+      "status": "ok",
+      "files_count": 13,
+      "findings_count": 3,
+      "elapsed": 40.9
+    },
+    {
+      "section": "architecture",
+      "status": "ok",
+      "files_count": 11,
+      "findings_count": 3,
+      "elapsed": 32.0
+    },
+    {
+      "section": "api-spec",
+      "status": "ok",
+      "files_count": 11,
+      "findings_count": 4,
+      "elapsed": 43.1
+    },
+    {
+      "section": "game-loop",
+      "status": "ok",
+      "files_count": 4,
+      "findings_count": 1,
+      "elapsed": 12.4
+    },
+    {
+      "section": "frontend",
+      "status": "ok",
+      "files_count": 4,
+      "findings_count": 1,
+      "elapsed": 20.5
+    },
+    {
+      "section": "vision",
+      "status": "ok",
+      "files_count": 3,
+      "findings_count": 1,
+      "elapsed": 14.9
+    },
+    {
+      "section": "source-map",
+      "status": "ok",
+      "files_count": 1,
+      "findings_count": 1,
+      "elapsed": 11.4
+    },
+    {
+      "section": "status",
+      "status": "ok",
+      "files_count": 1,
+      "findings_count": 0,
+      "elapsed": 7.0
+    }
+  ]
+}

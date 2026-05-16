@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## [2026-05-16] — Аудит базы знаний: 29 находок, заполнение 5 системных промптов v5.0
+- **Скрипт**: `scripts/audit_knowledge.py` — автоаудит 11 разделов, поиск противоречий и TBD-заглушек
+- **Результат**: 29 находок (6 critical, 8 high, 11 medium, 4 low)
+- **Этап 2 (ручная верификация)**: system-prompts/ — 5 TBD-заглушек, найдена жемчужина v5.0 (501aab82, 168 строк, «Собор Узника»)
+- **Этап 3 (журнал)**: `adnd-knowledge/_audit_journal.md` — 29 находок, план консолидации, принятые решения
+- **Этап 4 (консолидация)**: заполнены 5 системных промптов:
+  - `exis-master.md` — 6 блоков v5.0 «Собор Узника» (из 501aab82)
+  - `anima-assistant.md` — промпт Анимы (искра души)
+  - `greeting.md` — ритуал первого контакта
+  - `world-creation.md` — процедура сотворения мира (три Книги)
+  - `README.md` — оглавление всех промптов
+- **Отчёты**: `adnd-knowledge/_audit_report.json`, `adnd-knowledge/_audit_journal.md`
+- Git: commit pending
+
+## [2026-05-16] — Извлечение знаний из 62 чатов DeepSeek в adnd-knowledge/ (автоматическое, фон)
+- **Скрипт**: `scripts/extract_knowledge.py` — классификация 115 чатов (core/trash/tools), массовое извлечение через DeepSeek API
+- **Результат**: 62 чата обработано, 0 ошибок, 2 пропущено, время 291.4с (~5 мин)
+- **База знаний**: 75 файлов в 11 разделах (api-spec:10, architecture:10, decisions:7, frontend:3, game-design:12, game-loop:3, system-prompts:13, tech-specs:15, vision:2)
+- **Промт архивирован**: `project_memory/previous/extract-knowledge-script.md`
+- **Файлы**: `adnd-knowledge/_classification.json`, `scripts/extract_knowledge.py`
+- Git: commit pending
+
 ## [2026-05-16] — Cline Restart Protocol (Вариант B) — безопасная перезагрузка с чекпоинтом
 - **Обновлён** `.clinerules` — добавлена секция «🔄 Cline Restart Protocol» (5 шагов: Save → Checkpoint → Log → Announce → Restart)
 - **Обновлён** `project_memory/STATE.md` — актуальный чекпоинт перед перезагрузкой
