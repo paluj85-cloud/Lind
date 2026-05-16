@@ -42,6 +42,11 @@
 - Executed systemctl reload lind-tmux — session survived, config applied
 - Prompt archived: project_memory/previous/2026-05-15_tmux_prefix_ctrl_backslash.md
 
+## [2026-05-16] — Shutdown Checkpoint: STATE.md created
+- Created `project_memory/STATE.md` — restart/checkpoint file for Cline reboot
+- Contains: where we stopped, what's done, what's next, key files, technical state
+- Updated `project_memory/progress.log`
+
 ## [2026-05-14] — Project Initialization
 - Cleaned up previous EternalAMS artifacts
 - Reset .clinerules to template (v2.0)
