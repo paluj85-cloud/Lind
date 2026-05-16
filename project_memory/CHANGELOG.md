@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2026-05-16] — Cline Restart Protocol (Вариант B) — безопасная перезагрузка с чекпоинтом
+- **Обновлён** `.clinerules` — добавлена секция «🔄 Cline Restart Protocol» (5 шагов: Save → Checkpoint → Log → Announce → Restart)
+- **Обновлён** `project_memory/STATE.md` — актуальный чекпоинт перед перезагрузкой
+- **Обновлён** `project_memory/progress.log` — запись о завершении
+- **Prompts archived**: `2026-05-16_restart-protocol.md` → `previous/`
+- **Plan archived**: `2026-05-16_restart-protocol.md` → `previous/2026-05-16_restart-protocol-plan.md`
+
 ## [2026-05-16] — Система параллельных треков (Вариант C+) — Архитектор/Инженер/Критик
 - **Созданы 4 workflow-файла**:
   - `project_memory/tracks.md` — дашборд трёх треков (активный: Архитектор)
