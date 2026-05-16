@@ -7,7 +7,7 @@
 
 // ── State ───────────────────────────────────────────────────────────────────
 let ws = null;
-let sessionId = null;
+let sessionId = localStorage.getItem('lind_session_id') || null;
 let playerName = '';
 let pendingDiceRequest = null; // { request_id, ... }
 
@@ -108,6 +108,14 @@ function connect() {
 
   ws.onopen = () => {
     console.log('[Lind] WebSocket connected');
+    // If we have a saved session, try to restore it immediately
+    if (sessionId && playerName) {
+      sendMessage({
+        type: 'player_join',
+        player_name: playerName,
+        session_id: sessionId,
+      });
+    }
   };
 
   ws.onmessage = (event) => {
@@ -146,8 +154,9 @@ function handleMessage(msg) {
   switch (msg.type) {
     case 'session_created':
       sessionId = msg.session_id;
+      localStorage.setItem('lind_session_id', sessionId);
       // Now start the greeting ritual
-      sendMessage({ type: 'player_join', player_name: playerName });
+      sendMessage({ type: 'player_join', player_name: playerName, session_id: null });
       break;
 
     case 'master_thinking':
@@ -155,6 +164,12 @@ function handleMessage(msg) {
       break;
 
     case 'master_speech':
+      // Render backlog (history) if present
+      if (msg.backlog && Array.isArray(msg.backlog)) {
+        for (const entry of msg.backlog) {
+          addMessage(entry.role, entry.content);
+        }
+      }
       // Narrator content (master's words to player)
       if (msg.narrator) {
         addMessage('master', msg.narrator);

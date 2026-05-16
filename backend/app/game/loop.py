@@ -23,8 +23,10 @@ from backend.app.db import (
     save_world_fact,
     save_llm_trace,
     get_recent_messages,
+    get_all_messages,
     get_world_facts,
     get_next_sequence,
+    update_session_player,
 )
 from backend.app.llm.client import get_llm_client
 from backend.app.game.prompts.builder import PromptBuilder
@@ -198,6 +200,46 @@ class GameLoop:
         await self._narrate(parsed.narrator)
 
         self.log.info("Greeting ritual complete for: %s", player_name)
+
+    # ── Public API: Restore Session ─────────────────────────────────────────
+
+    async def restore_session(self, player_name: str) -> None:
+        """
+        Restore an existing session after reconnection.
+
+        Loads all messages from DB, sends them as backlog,
+        and updates player_name. No LLM calls, no greeting.
+        """
+        self.log.info("Restoring session for: %s", player_name)
+
+        await update_session_player(self.session_id, player_name)
+
+        # Load all messages for backlog
+        all_msgs = await get_all_messages(self.session_id)
+
+        backlog = []
+        for m in all_msgs:
+            role = "master" if m["role"] == "master" else "player"
+            backlog.append({
+                "role": role,
+                "content": m["content"],
+                "timestamp": m["timestamp"],
+            })
+
+        # Send backlog + short narrator with no greeting
+        narrator = (
+            f"⚜ Нити судьбы помнят тебя, {player_name}. "
+            "Ты возвращаешься в мир, который ждал твоего слова."
+        )
+
+        await self._ws_send({
+            "type": "master_speech",
+            "narrator": narrator,
+            "dice_request": None,
+            "backlog": backlog,
+        })
+
+        self.log.info("Session restored, backlog=%d messages", len(backlog))
 
     # ── Public API: Player Input ────────────────────────────────────────────
 
