@@ -83,6 +83,8 @@ class GameLoop:
         self, text: str, dice_request: dict[str, Any] | None = None
     ) -> None:
         """Send narrator speech to client, optionally with pending dice request."""
+        if not text.strip():
+            text = "Мастер задумался, всматриваясь в нити судьбы..."
         await self._ws_send(
             MasterSpeech(narrator=text, dice_request=dice_request).model_dump()
         )
@@ -223,15 +225,7 @@ class GameLoop:
         if parsed.dice_request and parsed.dice_request.skill:
             dice_request_dict = parsed.dice_request.model_dump()
             self._pending_dice_request_id = parsed.dice_request.request_id
-            # Send separate dice roll request to client
-            await self._ws_send(
-                DiceRollRequest(
-                    request_id=parsed.dice_request.request_id,
-                    skill=parsed.dice_request.skill,
-                    dc=parsed.dice_request.dc,
-                    reason=parsed.dice_request.reason,
-                ).model_dump()
-            )
+            # Dice request is embedded in MasterSpeech.dice_request below
 
         await self._think_stopped()
         await self._narrate(parsed.narrator, dice_request=dice_request_dict)
