@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [2026-05-16] — Восстановление сессии при перезагрузке (localStorage + backlog)
+- **app.js**: `sessionId` из localStorage, передача в `player_join`, рендер backlog в `master_speech`
+- **main.py**: проверка существующего `session_id` при `player_join` — восстановление вместо новой сессии
+- **loop.py**: метод `restore_session()` — загружает историю из БД, шлёт backlog, не вызывает LLM
+- **db.py**: без изменений (`get_all_messages()` уже существовал)
+- **Edge case**: устаревший session_id в localStorage → новый старт без двойного приветствия
+- **Верификация**: сервер перезапущен, ошибок нет, лог чист
+- Git: commits d3a9673, cb7e122
+- Plan: `project_memory/previous/reconnect-restore-session_plan.md`
+- Prompt: `project_memory/previous/reconnect-restore-session.md`
+
 ## [2026-05-16] — Инфраструктурный деплой (Nginx + WebSocket + systemd + админка)
 - **Nginx**: `nginx/lind.adndexis.ru.conf` — переработан, `/ws` прокси без trailing slash, логирование WebSocket-соединений
 - **Systemd**: `systemd/lind-backend.service` — создан, enabled, uvicorn на порту 8001
@@ -127,4 +138,24 @@
 - Created project_memory/ structure
 - Created ORIGIN.md with TBD placeholders
 - Created backend/ skeleton (app/main.py stub, tests/)
-- Created scripts/sync_and_push.sh placeholder
+- Created scripts/sync_and_push.sh placeholder## 2026-05-16 — Fix WebSocket sync bug (dd24178)
+
+### Исправлено
+- Nginx `/ws`: добавлен `proxy_buffering off` — устраняет задержку доставки WebSocket-фреймов
+- `GameLoop.handle_player_input`: убрана двойная отправка `DiceRollRequest` (оставлена только в `MasterSpeech`)
+- `GameLoop._narrate`: fallback-сообщение при пустом нарративе (защита от ошибок LLM)
+
+### Валидация
+- `nginx -t`, `py_compile` — пройдены
+- `systemctl reload nginx`, `restart lind-backend` — успешно
+## 2026-05-16 — Fix #2: Двойное приветствие (fc83190)
+
+### Исправлено
+- `app.js`: убран дублирующий `setInterval` с отправкой `player_join`
+- Единственная точка отправки `player_join` — `handleMessage` в ответ на `session_created`
+- Устранены дубликаты приветственного сообщения
+- Устранена блокировка поля ввода (dice_request от второго раунда)
+
+### Валидация
+- `node -c` — syntax ok
+- `systemctl restart lind-backend` — успешно
