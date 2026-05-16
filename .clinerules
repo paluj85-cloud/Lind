@@ -132,6 +132,25 @@ When receiving ANY new task, follow this pipeline strictly:
 - Log every phase transition
 - Log significant actions within each phase
 
+## Parallel Tracks System
+
+### Tracks (осмысленные имена)
+- **Архитектор**: System Prompt Экс-Ис, игровая механика, защита от взлома, дизайн мира
+- **Инженер**: Код (FastAPI, SQLite, фронтенд), деплой, инфраструктура
+- **Критик**: Верификация, поиск противоречий, регресс-тесты, 3-слойная проверка
+
+### Dependency Flow
+Архитектор → определяет логику → Инженер → реализует в коде → Критик → проверяет согласованность
+
+### Track Rules (ABSOLUTE)
+- ALWAYS read `project_memory/tracks.md` before ANY task — know which track is active, what's blocked, what depends on what
+- ALWAYS read `project_memory/dependency-map.md` before modifying files — know what else will be affected
+- When switching tracks: ALWAYS execute `project_memory/workflows/switch-track.md` protocol (5 steps: Save → Check Dependencies → Verify → Load Context → Update Dashboard)
+- Before completing ANY task (Phase 5): pass Слой 1 verification (pytest for Инженер, validate_facts for Архитектор)
+- Every 10th completed task: trigger Слой 3 (manual verification by user)
+- After significant prompt changes: trigger Слой 2 (LLM-critic analysis), save report to adnd-knowledge/*/_audit.json
+- Quality Gate: no task is "done" until verification layer appropriate to the change is passed
+
 ## Git Push Safety Rules
 1. Run `scripts/sync_and_push.sh <branch>` from repo root
 2. Script does: `git fetch`, `git pull --rebase`, `git push`
