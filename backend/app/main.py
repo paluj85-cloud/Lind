@@ -125,8 +125,12 @@ async def websocket_endpoint(ws: WebSocket):
                         session_created = True
                         continue
 
+                    # Session expired or not found — wipe client's stale id, start fresh
+                    game_log.info("Stale session_id %s, creating new session", existing_sid)
+
                 # New session (no existing session_id, or session expired)
-                if not session_created:
+                is_new_session = not session_created
+                if is_new_session:
                     await create_session(session_id, world_name="Lind")
                     await ws.send_json({"type": "session_created", "session_id": session_id})
                     session_created = True
