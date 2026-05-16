@@ -17,11 +17,18 @@ if [ -f /opt/lind/.bashrc ]; then
     source /opt/lind/.bashrc
 fi
 
-# Load API key from file
+# Load API key from file (legacy fallback)
 if [ -z "${CLINE_API_KEY:-}" ]; then
     if [ -f /opt/lind/.cline_api_key ]; then
         export CLINE_API_KEY=$(cat /opt/lind/.cline_api_key)
     fi
+fi
+
+# Load .env for interactive sessions (fallback if systemd didn't provide)
+if [ -f /opt/lind/.env ]; then
+    set -a
+    source /opt/lind/.env
+    set +a
 fi
 
 cd /opt/lind

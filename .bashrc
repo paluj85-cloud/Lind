@@ -1,0 +1,22 @@
+# Lind — sudo aliases for Cline CLI
+# Cline runs as 'exis', these aliases auto-prefix sudo for root operations
+
+alias systemctl='sudo systemctl'
+alias apt='sudo apt'
+alias apt-get='sudo apt-get'
+alias journalctl='sudo journalctl'
+alias docker='sudo docker'
+alias nginx='sudo nginx'
+alias certbot='sudo certbot'
+alias ufw='sudo ufw'
+alias cp='sudo cp'
+alias mv='sudo mv'
+alias rm='sudo rm'
+alias mkdir='sudo mkdir'
+alias chown='sudo chown'
+alias chmod='sudo chmod'
+alias ln='sudo ln'
+alias tee='sudo tee'
+alias kill='sudo kill'
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown'

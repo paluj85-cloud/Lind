@@ -1,0 +1,32 @@
+# Lind (ADND) — секреты и локальные файлы
+.env
+.cline_api_key
+.git-credentials
+.htpasswd
+
+# Node
+node_modules/
+.npm/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime
+tmux/
+logs/
+download/
+
+# Cline
+.cline/
