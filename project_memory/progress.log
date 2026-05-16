@@ -69,3 +69,22 @@
 - Plan: project_memory/prompts/2026-05-16_phase5-close-dual-tasks.md
 - Status: COMPLETE
 - Next: Перезагрузка Cline → System Prompt v5.0 (трек Архитектор)
+[2026-05-16T17:59:00Z] Phase 5 — Acceptance & Archive
+  Задача: Рефакторинг GameLoop (backend)
+  Результат: prompts/ пакет, чистка моделей, requirements.txt
+  Верификация: py_compile 7/7 OK, GameLoop импорт OK
+  Git: commit ad06bf8, ветка main
+  Файлы: STATE.md, CHANGELOG.md обновлены
+  Следующая задача: не определена — ожидание указаний пользователя
+
+## 2026-05-16 18:30 UTC — Инфраструктурный деплой (Nginx + WebSocket + systemd + админка) — ЗАВЕРШЕНО
+- Phase: Phase 1→5 (Infrastructure)
+- Action: Полный деплой бэкенда на VPS через Nginx с HTTPS
+- Systemd: lind-backend.service создан, enabled, работает (uvicorn на порту 8001)
+- Nginx: /ws WebSocket прокси без trailing slash, логирование соединений
+- Админка: /admin/ с HTTP Basic Auth (exis:lind-admin-2026)
+- Верификация: nginx -t OK, WebSocket wss:// работает, /admin/api/sessions 200 OK
+- Smoke-test: greeting ritual проходит; выявлен баг синхронизации WS (player_action after master_speech timeout)
+- Git: commit a5068be, ветка main
+- Статус: COMPLETE
+- Next: Фикс бага синхронизации WebSocket в loop.py

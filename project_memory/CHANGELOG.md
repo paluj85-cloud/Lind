@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## [2026-05-16] — Инфраструктурный деплой (Nginx + WebSocket + systemd + админка)
+- **Nginx**: `nginx/lind.adndexis.ru.conf` — переработан, `/ws` прокси без trailing slash, логирование WebSocket-соединений
+- **Systemd**: `systemd/lind-backend.service` — создан, enabled, uvicorn на порту 8001
+- **Админка**: `backend/app/admin.py` — HTTP Basic Auth (exis:lind-admin-2026), `/admin/api/sessions`
+- **main.py**: рефакторинг роутов (`/`, `/ws`, `/admin/`), HealthCheck
+- **WebSocket**: `backend/app/web/ws.py` — админ-обработка сообщений, graceful shutdown
+- **.env**: добавлен `ADMIN_PASSWORD`
+- **Верификация**: nginx -t OK, wss:// работает, /admin/api/sessions 200 OK, smoke-test пройден
+- **Известная проблема**: баг синхронизации WS (player_action после master_speech — таймаут)
+- Git: commit a5068be
+
+## [2026-05-16] — Рефакторинг GameLoop: выделение prompts/ пакета, чистка моделей, requirements.txt
+- **Создан пакет** `backend/app/game/prompts/` (4 файла: blocks, builder, context, __init__)
+- **Перенесена логика** из `backend/app/prompts.py` → пакет `game/prompts/`
+- **Исправлен** `loop.py` — импорты и вызовы нового API пакета
+- **Почищены модели**: `models.py` — удалён DiceRollResult, добавлен DiceCheckResult; `dice.py` — возвращает Pydantic-модель вместо dict
+- **Почищен конфиг**: `config.py` — убраны неиспользуемые `PROMPT_DIR` и `FTS_SEARCH_LIMIT`
+- **Добавлен** `backend/requirements.txt` (fastapi, uvicorn, pydantic, aiosqlite, aiohttp, python-dotenv, pydantic-settings)
+- **Верификация**: py_compile всех 7 файлов пройдена, GameLoop импортируется, зависимости установлены в .venv
+- Git: commit ad06bf8
+- Plan: `project_memory/plans/backend-fix-imports-v0.1.md`
+- Prompt: `project_memory/prompts/backend-fix-imports-v0.1.md`
+
+
 ## [2026-05-16] — Аудит базы знаний: 29 находок, заполнение 5 системных промптов v5.0
 - **Скрипт**: `scripts/audit_knowledge.py` — автоаудит 11 разделов, поиск противоречий и TBD-заглушек
 - **Результат**: 29 находок (6 critical, 8 high, 11 medium, 4 low)

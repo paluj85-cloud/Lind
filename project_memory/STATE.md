@@ -1,25 +1,38 @@
 # Состояние проекта Lind
 
 ## Где мы остановились
-- **Задача**: Аудит базы знаний + консолидация system-prompts — **ЗАВЕРШЕНО**
-- **Результат**: 29 находок (6 critical, 8 high, 11 medium, 4 low), 5 системных промптов v5.0 заполнены
-- **Заполненные промты**: exis-master.md (6 блоков v5.0 «Собор Узника»), anima-assistant.md, greeting.md, world-creation.md, README.md
-- **Скрипты**: audit_knowledge.py, extract_knowledge.py
-- **Отчёты**: _audit_report.json (29 findings), _audit_journal.md (журнал разногласий)
-- **Следующая задача**: не определена — ожидание указаний пользователя
+- **Задача**: Инфраструктурный деплой бэкенда (Nginx + WebSocket + systemd + админка) — **ЗАВЕРШЕНО**
+- **Результат**: Бэкенд работает на https://lind.adndexis.ru, WebSocket через Nginx, админка с Basic Auth
+- **Ключевые изменения**:
+  - `nginx/lind.adndexis.ru.conf` — Nginx с HTTPS, прокси `/ws` без trailing slash, логирование WebSocket-соединений
+  - `systemd/lind-backend.service` — systemd unit для FastAPI (uvicorn на порту 8001)
+  - `.env` — добавлен `ADMIN_PASSWORD` для HTTP Basic Auth админ-панели
+  - `backend/app/admin.py` — админ-панель с Basic Auth
+  - `backend/app/main.py` — роуты (`/`, `/ws`, `/admin/`)
+- **Верификация**:
+  - `nginx -t` пройден, nginx перезагружен
+  - `systemctl` — lind-backend запущен и enabled
+  - WebSocket `/ws` устанавливается через Nginx (wss://), greeting ritual выполняется
+  - Админка `/admin/api/sessions` возвращает данные с авторизацией
+  - Smoke-test выявил таймаут на клиенте при синхронном отправлении действий в цикле — **баг синхронизации WS в loop.py** (не инфраструктурный, требует отдельного фикса)
+- **Git**: commit a5068be, ветка main
 
 ## Последнее обновление
-2026-05-16T14:03:00Z
+2026-05-16T18:54:00Z
 
 ## Активный трек
-Архитектор (аудит + консолидация system-prompts) — завершён
+Инженер (инфраструктурный деплой: Nginx, WebSocket, systemd, админка)
 
 ## Файлы созданы/изменены на этой сессии
-- `scripts/audit_knowledge.py` — скрипт автоаудита
-- `adnd-knowledge/_audit_report.json` — результат автоаудита (29 находок)
-- `adnd-knowledge/_audit_journal.md` — журнал разногласий
-- `adnd-knowledge/system-prompts/exis-master.md` — промпт Экс-Ис (из 501aab82, v5.0)
-- `adnd-knowledge/system-prompts/anima-assistant.md` — промпт Анимы
-- `adnd-knowledge/system-prompts/greeting.md` — ритуал первого контакта
-- `adnd-knowledge/system-prompts/world-creation.md` — сотворение мира (три Книги)
-- `adnd-knowledge/system-prompts/README.md` — оглавление (обновлено)
+- `nginx/lind.adndexis.ru.conf` — полная переработка (WebSocket без /ws/, логирование)
+- `systemd/lind-backend.service` — создан
+- `backend/app/admin.py` — создан (админ-панель)
+- `backend/app/main.py` — рефакторинг (роуты, HealthCheck)
+- `backend/app/web/ws.py` — добавлена админ-обработка сообщений
+- `backend/app/web/handler.py` — создан
+- `backend/app/game/loop.py` — доработан WebSocket graceful shutdown
+- `.env` — добавлен ADMIN_PASSWORD
+- `project_memory/STATE.md` — этот файл
+
+## Известные проблемы
+- **Баг синхронизации WS**: при отправке player_action сразу после получения master_speech в цикле, бэкенд не принимает сообщение (таймаут). Требуется рефакторинг loop.py/game_master.py для корректной обработки последовательных сообщений.
