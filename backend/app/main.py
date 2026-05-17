@@ -5,7 +5,8 @@ from __future__ import annotations
 import json
 from uuid import uuid4
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend.app.config import settings, ensure_directories
@@ -38,28 +39,24 @@ async def health():
 # Serve player index.html at /
 @app.get("/")
 async def root():
-    from fastapi.responses import FileResponse
     return FileResponse("backend/static/index.html")
 
 
 # Serve admin.html at /admin
 @app.get("/admin")
 async def admin_panel():
-    from fastapi.responses import FileResponse
     return FileResponse("backend/static/admin.html")
 
 
 # Serve login.html at /login
 @app.get("/login")
 async def login_page():
-    from fastapi.responses import FileResponse
     return FileResponse("backend/static/login.html")
 
 
 # Serve register.html at /register
 @app.get("/register")
 async def register_page():
-    from fastapi.responses import FileResponse
     return FileResponse("backend/static/register.html")
 
 
@@ -69,9 +66,6 @@ async def register_page():
 @app.post("/api/auth/register")
 async def auth_register(request: Request):
     """Register a new player account."""
-    from fastapi import Request
-    from fastapi.responses import JSONResponse
-
     try:
         body = await request.json()
     except Exception:
@@ -103,9 +97,6 @@ async def auth_register(request: Request):
 @app.post("/api/auth/login")
 async def auth_login(request: Request):
     """Login — return player info + sessions list."""
-    from fastapi import Request
-    from fastapi.responses import JSONResponse
-
     try:
         body = await request.json()
     except Exception:
@@ -140,9 +131,6 @@ async def auth_login(request: Request):
 @app.get("/api/auth/sessions")
 async def auth_sessions(request: Request):
     """Get active sessions for a player (token in query param)."""
-    from fastapi import Request
-    from fastapi.responses import JSONResponse
-
     token = request.query_params.get("token", "")
     player_id = request.query_params.get("player_id", "")
 
@@ -160,9 +148,6 @@ async def auth_sessions(request: Request):
 @app.post("/api/auth/link-session")
 async def auth_link_session(request: Request):
     """Link a session to a player (called after session creation)."""
-    from fastapi import Request
-    from fastapi.responses import JSONResponse
-
     try:
         body = await request.json()
     except Exception:
