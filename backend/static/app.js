@@ -166,6 +166,8 @@ function handleMessage(msg) {
       // Render backlog (history) if present
       if (msg.backlog && Array.isArray(msg.backlog)) {
         for (const entry of msg.backlog) {
+          // Skip system messages — they are internal (dice, reconnect)
+          if (entry.role === 'system') continue;
           addMessage(entry.role, entry.content);
         }
       }
@@ -236,11 +238,11 @@ sendBtn.addEventListener('click', () => {
 });
 
 chatInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    sendPlayerAction(chatInput.value);
-  }
-});
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendPlayerAction(chatInput.value);
+    }
+  });
 
 // ── Init ────────────────────────────────────────────────────────────────────
 console.log('[Lind] Client loaded');
