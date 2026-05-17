@@ -15,10 +15,12 @@ class ContextFormatter:
             return ""
         lines = []
         for msg in messages[-settings.CONTEXT_MAX_MESSAGES:]:
+            # Skip system messages — they are internal, not for LLM context
+            if msg.get("role") == "system":
+                continue
             role_label = {
                 "player": "🎮 ИГРОК",
                 "master": "⚜ ЭКС-ИС",
-                "system": "⚙ СИСТЕМА",
             }.get(msg.get("role", ""), msg.get("role", "?"))
             content = msg.get("content", "")
             # Truncate long messages to avoid bloat

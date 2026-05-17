@@ -88,3 +88,6 @@
 - Git: commit a5068be, ветка main
 - Статус: COMPLETE
 - Next: Фикс бага синхронизации WebSocket в loop.py
+[2026-05-16 19:34 UTC] Phase 5 complete: WebSocket sync bug fix (dd24178). Plan archived to previous/.
+[2026-05-16 19:47 UTC] Phase 5 complete: double player_join bug fix (fc83190).
+[2026-05-17 07:48 UTC] [Инженер] Исправлено: системные сообщения (reconnect, dice_result) исключены из LLM-контекста. Изменены: db.py (SQL-фильтр role!=system), context.py (пропуск system в format_context_memory), loop.py (restore_session без narrator).

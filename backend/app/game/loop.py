@@ -226,15 +226,10 @@ class GameLoop:
                 "timestamp": m["timestamp"],
             })
 
-        # Send backlog + short narrator with no greeting
-        narrator = (
-            f"⚜ Нити судьбы помнят тебя, {player_name}. "
-            "Ты возвращаешься в мир, который ждал твоего слова."
-        )
-
+        # Send backlog silently — no narrator, no reconnection message
         await self._ws_send({
             "type": "master_speech",
-            "narrator": narrator,
+            "narrator": "",
             "dice_request": None,
             "backlog": backlog,
         })
