@@ -9,10 +9,15 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 
 from backend.app.config import settings, ensure_directories
-from backend.app.db import get_db, close_db, create_session, update_session_player, save_message, get_session
+from backend.app.db import (
+    get_db, close_db,
+    create_session, update_session_player, save_message, get_session,
+    create_player, get_player_by_login, get_player_sessions, link_session_to_player,
+)
 from backend.app.game.loop import GameLoop
 from backend.app.game.logger import get_game_logger
 from backend.app.admin.routes import router as admin_router
+from backend.app.auth import hash_password, verify_password, validate_login, validate_password, generate_token
 
 # ── App ──────────────────────────────────────────────────────────────────────
 
@@ -42,6 +47,137 @@ async def root():
 async def admin_panel():
     from fastapi.responses import FileResponse
     return FileResponse("backend/static/admin.html")
+
+
+# Serve login.html at /login
+@app.get("/login")
+async def login_page():
+    from fastapi.responses import FileResponse
+    return FileResponse("backend/static/login.html")
+
+
+# Serve register.html at /register
+@app.get("/register")
+async def register_page():
+    from fastapi.responses import FileResponse
+    return FileResponse("backend/static/register.html")
+
+
+# ── Auth API ─────────────────────────────────────────────────────────────────
+
+
+@app.post("/api/auth/register")
+async def auth_register(request: Request):
+    """Register a new player account."""
+    from fastapi import Request
+    from fastapi.responses import JSONResponse
+
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "Невалидный JSON"}, status_code=400)
+
+    login = body.get("login", "").strip()
+    password = body.get("password", "")
+
+    # Validate
+    err = validate_login(login)
+    if err:
+        return JSONResponse({"error": err}, status_code=422)
+    err = validate_password(password)
+    if err:
+        return JSONResponse({"error": err}, status_code=422)
+
+    # Check uniqueness
+    existing = await get_player_by_login(login)
+    if existing:
+        return JSONResponse({"error": "Логин уже занят"}, status_code=409)
+
+    # Create player
+    pw_hash = hash_password(password)
+    player_id = await create_player(login, pw_hash)
+
+    return JSONResponse({"player_id": player_id, "login": login}, status_code=201)
+
+
+@app.post("/api/auth/login")
+async def auth_login(request: Request):
+    """Login — return player info + sessions list."""
+    from fastapi import Request
+    from fastapi.responses import JSONResponse
+
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "Невалидный JSON"}, status_code=400)
+
+    login = body.get("login", "").strip()
+    password = body.get("password", "")
+
+    if not login or not password:
+        return JSONResponse({"error": "Логин и пароль обязательны"}, status_code=422)
+
+    player = await get_player_by_login(login)
+    if not player:
+        return JSONResponse({"error": "Неверный логин или пароль"}, status_code=401)
+
+    if not verify_password(password, player["password_hash"]):
+        return JSONResponse({"error": "Неверный логин или пароль"}, status_code=401)
+
+    # Get sessions
+    sessions = await get_player_sessions(player["id"])
+
+    token = generate_token()
+
+    return JSONResponse({
+        "player_id": player["id"],
+        "login": player["login"],
+        "token": token,
+        "sessions": sessions,
+    }, status_code=200)
+
+
+@app.get("/api/auth/sessions")
+async def auth_sessions(request: Request):
+    """Get active sessions for a player (token in query param)."""
+    from fastapi import Request
+    from fastapi.responses import JSONResponse
+
+    token = request.query_params.get("token", "")
+    player_id = request.query_params.get("player_id", "")
+
+    if not player_id:
+        return JSONResponse({"error": "player_id required"}, status_code=422)
+
+    sessions = await get_player_sessions(player_id)
+
+    return JSONResponse({"sessions": sessions}, status_code=200)
+
+
+# ── Link session to player ──────────────────────────────────────────────────
+
+
+@app.post("/api/auth/link-session")
+async def auth_link_session(request: Request):
+    """Link a session to a player (called after session creation)."""
+    from fastapi import Request
+    from fastapi.responses import JSONResponse
+
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "Невалидный JSON"}, status_code=400)
+
+    session_id = body.get("session_id", "")
+    player_id = body.get("player_id", "")
+    token = body.get("token", "")
+
+    if not session_id or not player_id:
+        return JSONResponse({"error": "session_id and player_id required"}, status_code=422)
+
+    await link_session_to_player(session_id, player_id)
+
+    return JSONResponse({"status": "linked"}, status_code=200)
 
 
 # ── Startup / Shutdown ──────────────────────────────────────────────────────

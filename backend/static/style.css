@@ -1,0 +1,126 @@
+/* Lind Auth Pages — shared styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.auth-page {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #0a0a0f;
+    color: #e0d8c8;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    background: #13131f;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-size: 28px;
+    color: #c9a44b;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+}
+
+.auth-container .subtitle {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.auth-form label span {
+    font-size: 13px;
+    color: #999;
+}
+
+.auth-form input {
+    background: #0a0a0f;
+    border: 1px solid #333;
+    color: #e0d8c8;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    width: 100%;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #c9a44b;
+}
+
+.btn-primary {
+    background: #c9a44b;
+    color: #0a0a0f;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.btn-primary:hover {
+    background: #d9b45b;
+}
+
+.btn-primary:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.error {
+    background: #3a1118;
+    border: 1px solid #c44;
+    color: #e77;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+.switch-link {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.switch-link a {
+    color: #c9a44b;
+    text-decoration: none;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lind — Вход</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <h1>⚜ Lind ⚜</h1>
+        <p class="subtitle">Хроники Аденда</p>
+
+        <div id="auth-error" class="error hidden"></div>
+
+        <form id="login-form" class="auth-form">
+            <label>
+                <span>Логин</span>
+                <input type="text" id="login" name="login" placeholder="Ваш логин" autocomplete="username" required>
+            </label>
+
+            <label>
+                <span>Пароль</span>
+                <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="current-password" required>
+            </label>
+
+            <button type="submit" class="btn-primary">Войти</button>
+        </form>
+
+        <p class="switch-link">
+            Нет аккаунта? <a href="/register">Регистрация</a>
+        </p>
+    </div>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const errorEl = document.getElementById('auth-error');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorEl.classList.add('hidden');
+
+            const login = document.getElementById('login').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (!login || !password) {
+                errorEl.textContent = 'Заполните все поля';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            const btn = form.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = 'Вход...';
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ login, password }),
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Ошибка входа');
+                }
+
+                // Store auth data
+                localStorage.setItem('lind_player_id', data.player_id);
+                localStorage.setItem('lind_token', data.token);
+                localStorage.setItem('lind_login', data.login);
+                // Clear old session_id (new flow uses auth)
+                localStorage.removeItem('lind_session_id');
+
+                window.location.href = '/';
+            } catch (err) {
+                errorEl.textContent = err.message;
+                errorEl.classList.remove('hidden');
+                btn.disabled = false;
+                btn.textContent = 'Войти';
+            }
+        });
+    </script>
+</body>
+</html>

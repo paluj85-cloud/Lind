@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lind — Хроники ADND</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Georgia', 'Times New Roman', serif; background:#0a0a0f; color:#e0d8c8; min-height:100dvh; overflow:hidden; }
+    #app { display:flex; flex-direction:column; height:100dvh; max-width:800px; margin:0 auto; position:relative; }
+#header { background:linear-gradient(180deg, #13131f 0%, #0a0a0f 100%); border-bottom:1px solid #c9a44b33; padding:16px 20px; text-align:center; position:relative; }
+#header h1 { font-size:22px; color:#c9a44b; letter-spacing:2px; margin-bottom:2px; }
+#header .sub { font-size:12px; color:#888; }
+#logout-btn { position:absolute; right:16px; top:14px; background:none; border:1px solid #c9a44b44; color:#c9a44b; padding:4px 12px; border-radius:4px; font-size:11px; cursor:pointer; }
+#logout-btn:hover { background:#c9a44b22; }
+#thinking { text-align:center; padding:6px; font-size:12px; color:#c9a44b; opacity:0; transition:opacity .3s; }
+#thinking.visible { opacity:1; }
+#scroll { flex:1; overflow-y:auto; padding:16px 20px; display:flex; flex-direction:column; gap:12px; scroll-behavior:smooth; }
+#scroll::-webkit-scrollbar { width:6px; }
+#scroll::-webkit-scrollbar-track { background:#0a0a0f; }
+#scroll::-webkit-scrollbar-thumb { background:#2a2a3a; border-radius:3px; }
+.msg { max-width:90%; padding:10px 14px; border-radius:8px; line-height:1.6; font-size:15px; animation:fadeIn .3s ease; }
+.msg.master { align-self:flex-start; background:linear-gradient(135deg, #1a1a2e 0%, #141428 100%); border-left:2px solid #c9a44b; color:#d8d0c0; }
+.msg.player { align-self:flex-end; background:linear-gradient(135deg, #162036 0%, #101828 100%); border-right:2px solid #4a90d9; color:#c0d0e8; }
+.msg.system { align-self:center; font-size:12px; color:#666; font-style:italic; padding:4px 12px; }
+.msg .meta { font-size:10px; color:#666; margin-bottom:2px; text-transform:uppercase; letter-spacing:1px; }
+.msg .narrator { white-space:pre-wrap; }
+.dice-banner { align-self:center; background:#1a1a00; border:1px solid #c9a44b44; border-radius:8px; padding:12px 20px; text-align:center; animation:pulse 2s infinite; margin:8px 0; }
+.dice-banner .skill { font-size:11px; color:#c9a44b; text-transform:uppercase; letter-spacing:2px; }
+.dice-banner .label { font-size:12px; color:#aaa; margin:4px 0; }
+.dice-banner button { background:#c9a44b; color:#0a0a0f; border:none; padding:8px 24px; border-radius:4px; font-size:14px; cursor:pointer; margin-top:6px; font-weight:bold; }
+.dice-banner button:hover { background:#d9b45b; }
+.dice-result { align-self:center; font-size:18px; color:#c9a44b; font-weight:bold; padding:8px 20px; border:1px solid #c9a44b; border-radius:8px; margin:4px 0; }
+    #input-area { background:#13131f; border-top:1px solid #2a2a3a; padding:12px 20px; padding-bottom:calc(12px + env(safe-area-inset-bottom, 0px)); display:flex; gap:8px; align-items:flex-end; }
+    #input-area textarea { flex:1; background:#0a0a0f; border:1px solid #333; color:#e0d8c8; padding:10px 14px; border-radius:6px; font-size:15px; font-family:inherit; resize:none; rows:2; min-height:44px; max-height:120px; line-height:1.4; word-break:break-word; overflow-y:auto; }
+    #input-area textarea:focus { outline:none; border-color:#c9a44b; }
+    #input-area button { background:#c9a44b; color:#0a0a0f; border:none; padding:10px 20px; border-radius:6px; font-size:14px; cursor:pointer; font-weight:bold; align-self:flex-end; flex-shrink:0; }
+    #input-area button:hover { background:#d9b45b; }
+    #input-area button:disabled { background:#444; color:#888; cursor:not-allowed; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse { 0%,100% { box-shadow:0 0 8px #c9a44b11; } 50% { box-shadow:0 0 16px #c9a44b33; } }
+/* Session picker overlay */
+#session-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#0a0a0f; display:flex; align-items:center; justify-content:center; z-index:100; }
+#session-overlay .inner { text-align:center; max-width:420px; width:90%; max-height:80vh; overflow-y:auto; }
+#session-overlay h2 { color:#c9a44b; margin-bottom:8px; }
+#session-overlay .player-name { color:#888; font-size:13px; margin-bottom:24px; }
+#session-list { display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+.session-card { background:#13131f; border:1px solid #2a2a3a; border-radius:8px; padding:14px 16px; text-align:left; cursor:pointer; transition:border-color .2s; }
+.session-card:hover { border-color:#c9a44b; }
+.session-card .wc { font-size:12px; color:#c9a44b; text-transform:uppercase; letter-spacing:1px; }
+.session-card .pn { font-size:16px; color:#e0d8c8; margin:4px 0; }
+.session-card .date { font-size:11px; color:#666; }
+#new-game-btn { background:#c9a44b; color:#0a0a0f; border:none; padding:12px 32px; border-radius:6px; font-size:16px; cursor:pointer; font-weight:bold; width:100%; }
+#new-game-btn:hover { background:#d9b45b; }
+</style>
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+
+<!-- Session picker — shown after auth check -->
+<div id="session-overlay">
+  <div class="inner">
+    <h2>⚜ Lind ⚜</h2>
+    <p class="player-name" id="player-greeting"></p>
+    <div id="session-list"></div>
+    <button id="new-game-btn">Новая игра</button>
+    <p style="margin-top:12px;font-size:12px;"><a href="#" id="logout-link" style="color:#666;">Выйти из аккаунта</a></p>
+  </div>
+</div>
+
+<div id="app" style="display:none;">
+  <div id="header">
+    <button id="logout-btn" title="Выйти">Выйти</button>
+    <h1>⚜ Lind ⚜</h1>
+    <div class="sub">Хроники ADND</div>
+  </div>
+  <div id="thinking">Экс-Ис размышляет…</div>
+  <div id="scroll"></div>
+    <div id="input-area">
+      <textarea id="chat-input" placeholder="Что ты делаешь?" autocomplete="off" rows="2"></textarea>
+      <button id="send-btn">↵</button>
+    </div>
+</div>
+
+</body>
+</html>

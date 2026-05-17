@@ -12,6 +12,14 @@ DB: aiosqlite.Connection | None = None
 
 
 SCHEMA_SQL = """
+-- Players (accounts)
+CREATE TABLE IF NOT EXISTS players (
+    id TEXT PRIMARY KEY,
+    login TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    created_at TEXT NOT NULL
+);
+
 -- Sessions
 CREATE TABLE IF NOT EXISTS sessions (
     id TEXT PRIMARY KEY,
@@ -19,7 +27,9 @@ CREATE TABLE IF NOT EXISTS sessions (
     status TEXT NOT NULL DEFAULT 'active',
     world_name TEXT DEFAULT 'Lind',
     player_name TEXT DEFAULT '',
-    reveal_level INTEGER DEFAULT 0
+    reveal_level INTEGER DEFAULT 0,
+    player_id TEXT DEFAULT NULL,
+    FOREIGN KEY (player_id) REFERENCES players(id)
 );
 
 -- Messages (chat history)
@@ -114,6 +124,59 @@ async def close_db() -> None:
     if DB is not None:
         await DB.close()
         DB = None
+
+
+# ── Player account operations ────────────────────────────────────────────────
+
+
+async def create_player(login: str, password_hash: str) -> str:
+    """Create a new player account, return the player ID."""
+    import uuid
+    db = await get_db()
+    player_id = str(uuid.uuid4())
+    now = utc_now()
+    await db.execute(
+        """INSERT INTO players (id, login, password_hash, created_at)
+           VALUES (?, ?, ?, ?)""",
+        (player_id, login, password_hash, now),
+    )
+    await db.commit()
+    return player_id
+
+
+async def get_player_by_login(login: str) -> dict | None:
+    """Get a player by login."""
+    db = await get_db()
+    cursor = await db.execute(
+        "SELECT * FROM players WHERE login = ?", (login,)
+    )
+    row = await cursor.fetchone()
+    return dict(row) if row else None
+
+
+async def get_player_sessions(player_id: str) -> list[dict]:
+    """Get all active sessions for a player, newest first."""
+    db = await get_db()
+    cursor = await db.execute(
+        """SELECT s.*,
+                  (SELECT COUNT(*) FROM messages WHERE session_id = s.id) as message_count
+           FROM sessions s
+           WHERE s.player_id = ? AND s.status = 'active'
+           ORDER BY s.created_at DESC""",
+        (player_id,),
+    )
+    rows = await cursor.fetchall()
+    return [dict(r) for r in rows]
+
+
+async def link_session_to_player(session_id: str, player_id: str) -> None:
+    """Link an existing session to a player account."""
+    db = await get_db()
+    await db.execute(
+        "UPDATE sessions SET player_id = ? WHERE id = ?",
+        (player_id, session_id),
+    )
+    await db.commit()
 
 
 # ── Session operations ──────────────────────────────────────────────────────
